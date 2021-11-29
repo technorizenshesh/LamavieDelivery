@@ -22,4 +22,8 @@
     <color name="color_green_one">#52FAAB</color>
 
     <color name="color_yellow_one">#FAE952</color>
+
+    <color name="color_grey_two">#707070</color>
+
+    <color name="blue_color">#87C2EE</color>
 </resources>

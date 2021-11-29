@@ -37,7 +37,7 @@
                     android:id="@+id/ivHome"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/inactive_home"
+                    android:src="@drawable/active_home"
                     android:padding="@dimen/_3sdp"/>
 
                 <TextView

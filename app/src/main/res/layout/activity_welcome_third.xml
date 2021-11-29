@@ -47,7 +47,8 @@
                 android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_15sdp"
-                android:src="@drawable/third_active"/>
+                android:src="@drawable/third_active"
+                android:visibility="gone"/>
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -62,7 +63,8 @@
                 android:paddingRight="@dimen/_20sdp"
                 android:textColor="@color/color_next"
                 android:textAllCaps="false"
-                android:background="@drawable/rounded_next_bg"/>
+                android:background="@drawable/rounded_next_bg"
+                android:visibility="gone"/>
 
 
         </LinearLayout>

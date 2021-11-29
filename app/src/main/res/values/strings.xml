@@ -45,4 +45,26 @@
     <string name="order_history">Order History</string>
     <string name="others">Others</string>
     <string name="main">Main</string>
+
+    <string name="please_wait">Please wait...</string>
+    <string name="network_failure">Sorry! Not connected to internet</string>
+    <string name="please_enter_first_name">Please enter first name</string>
+    <string name="please_enter_last_name">Please enter last name</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+
+    <string name="wrong_email">Can\'t enter worng email.</string>
+    <string name="enter_dob">Enter dob</string>
+
+    <string name="place_api_key">AIzaSyC4Eg_qGdkZrcW-td6QsmJAk2g4nzPaat0</string>
+    <string name="address">Address</string>
+    <string name="please_select_address">Please select address</string>
+    <string name="camera">Camera</string>
+    <string name="select_image_from">Select image from</string>
+    <string name="gallery">Gallery</string>
+    <string name="please_select_profile_picture">Please upload profile picture</string>
+    <string name="please_select_gender">Please select gender</string>
+    <string name="are_you_sure_you_want_to_exit_this_app">Are you sure you want to exit this app?</string>
+    <string name="are_you_sure_you_want_to_logout_this_app">Are you sure you want to logout this app?</string>
+
 </resources>

@@ -64,63 +64,67 @@
 
 
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="@dimen/_100sdp"
-                 android:orientation="horizontal"
-                 android:weightSum="1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
-                 <LinearLayout
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"
-                     android:layout_weight=".5"
-                     android:gravity="center"
-                     android:orientation="vertical">
+                    <LinearLayout
+                        android:id="@+id/layoutMale"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                     <ImageView
-                         android:layout_width="@dimen/_40sdp"
-                         android:layout_height="@dimen/_40sdp"
-                         android:layout_gravity="center"
-                         android:src="@drawable/male"/>
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/male"/>
 
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="@string/male"
-                         android:fontFamily="@font/poppins_regular"
-                         android:textSize="@dimen/_12sdp"
-                         android:textColor="@color/black"
-                         android:layout_margin="@dimen/_8sdp"/>
-
-
-                 </LinearLayout>
-
-                 <LinearLayout
-                     android:layout_width="0dp"
-                     android:layout_height="match_parent"
-                     android:layout_weight=".5"
-                     android:gravity="center"
-                     android:orientation="vertical">
-
-                     <ImageView
-                         android:layout_width="@dimen/_40sdp"
-                         android:layout_height="@dimen/_40sdp"
-                         android:layout_gravity="center"
-                         android:src="@drawable/female"/>
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="@string/female"
-                         android:fontFamily="@font/poppins_regular"
-                         android:textSize="@dimen/_12sdp"
-                         android:textColor="@color/black"
-                         android:layout_margin="@dimen/_8sdp"/>
+                        <TextView
+                            android:id="@+id/tvMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/male"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/black"
+                            android:layout_margin="@dimen/_8sdp"/>
 
 
-                 </LinearLayout>
+                    </LinearLayout>
 
-             </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/layoutFemale"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/female"/>
+
+                        <TextView
+                            android:id="@+id/tvFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/female"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/black"
+                            android:layout_margin="@dimen/_8sdp"/>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
 
