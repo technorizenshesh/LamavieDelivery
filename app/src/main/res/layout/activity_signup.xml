@@ -136,7 +136,9 @@
                         android:layout_weight=".3"
                         android:gravity="center"
                         app:ccp_countryPreference="SA"
-                        app:ccp_showFlag="false"
+                        app:ccp_showFlag="true"
+                        app:ccp_showPhoneCode="true"
+                        app:ccp_showNameCode="false"
                         app:ccp_contentColor="@color/black"
                         app:ccp_textSize="@dimen/_12sdp"
                         />

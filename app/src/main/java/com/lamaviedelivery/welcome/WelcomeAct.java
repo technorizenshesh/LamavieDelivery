@@ -72,6 +72,7 @@ public class WelcomeAct extends AppCompatActivity {
 
         }
 
+
         dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
 
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
