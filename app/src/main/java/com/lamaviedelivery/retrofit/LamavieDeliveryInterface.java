@@ -72,7 +72,9 @@ public interface LamavieDeliveryInterface {
 
 
 
-
+    @FormUrlEncoded
+    @POST("update_lat_lon")
+    Call<Map<String, String>> updateLocation(@FieldMap Map<String, String> params);
 
 
 

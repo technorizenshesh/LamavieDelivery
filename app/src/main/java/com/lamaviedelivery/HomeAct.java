@@ -1,11 +1,15 @@
 package com.lamaviedelivery;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +18,8 @@ import com.lamaviedelivery.databinding.ActivityHomeBinding;
 import com.lamaviedelivery.fragment.AccountFragment;
 import com.lamaviedelivery.fragment.HomeFragment;
 import com.lamaviedelivery.fragment.WalletFragment;
+import com.lamaviedelivery.service.MyService;
+import com.lamaviedelivery.utils.NetworkAvailablity;
 
 public class HomeAct extends AppCompatActivity {
     ActivityHomeBinding binding;
@@ -115,4 +121,21 @@ public class HomeAct extends AppCompatActivity {
         AlertDialog alert11 = builder1.create();
         alert11.show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ContextCompat.startForegroundService(getApplicationContext(),new Intent(getApplicationContext(), MyService.class));
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(new Intent(this, MyService.class));
+    }
+
+
+
 }
