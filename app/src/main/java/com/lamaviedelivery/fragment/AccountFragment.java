@@ -1,6 +1,7 @@
 package com.lamaviedelivery.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.lamaviedelivery.ChangePassAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.FragmentAccountBinding;
 import com.lamaviedelivery.utils.DataManager;
@@ -42,6 +44,8 @@ public class AccountFragment extends Fragment {
         binding.tvAddress.setText(DataManager.getInstance().getUserData(getActivity()).result.address);
 
         binding.layoutLogout.setOnClickListener(v -> LogOutAlert());
+
+        binding.layoutChangePass.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChangePassAct.class)));
 
     }
 

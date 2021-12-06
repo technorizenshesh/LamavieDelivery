@@ -66,5 +66,12 @@
     <string name="please_select_gender">Please select gender</string>
     <string name="are_you_sure_you_want_to_exit_this_app">Are you sure you want to exit this app?</string>
     <string name="are_you_sure_you_want_to_logout_this_app">Are you sure you want to logout this app?</string>
+    <string name="no_booking_available">No booking available</string>
+    <string name="save">Save</string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="new_pass">New Password</string>
+
+    <string name="required">Required</string>
+    <string name="password_does_not_matched">Password doesn\'t matched</string>
 
 </resources>

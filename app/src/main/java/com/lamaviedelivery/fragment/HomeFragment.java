@@ -1,9 +1,12 @@
 package com.lamaviedelivery.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,12 +14,27 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
+import com.lamaviedelivery.LogWithMobileAct;
 import com.lamaviedelivery.R;
+import com.lamaviedelivery.VerifyActivity;
 import com.lamaviedelivery.adapter.MyAdapter;
 import com.lamaviedelivery.databinding.FragmentHomeBinding;
+import com.lamaviedelivery.model.BookingModel;
+import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
+import com.lamaviedelivery.utils.DataManager;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-FragmentHomeBinding binding;
+
+    FragmentHomeBinding binding;
+
 
 
     @Nullable
@@ -31,8 +49,8 @@ FragmentHomeBinding binding;
         super.onViewCreated(view, savedInstanceState);
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("All"));
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("New"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("In Progress"));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Cancel"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Completed"));
         binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
@@ -51,4 +69,7 @@ FragmentHomeBinding binding;
             }
         });
     }
+
+
+
 }

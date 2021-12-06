@@ -16,12 +16,12 @@ import com.lamaviedelivery.model.BookingModel;
 
 import java.util.ArrayList;
 
-public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHolder> {
+public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHolder> {
     Context context;
-    ArrayList<BookingModel>arrayList;
+    ArrayList<BookingModel.Result>arrayList;
 
 
-    public RequestAdapter(Context context, ArrayList<BookingModel> arrayList) {
+    public RequestAdapter(Context context, ArrayList<BookingModel.Result> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -36,24 +36,28 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        if(arrayList.get(position).getType().equals("new request")){
-            holder.binding.btnStatus.setText(arrayList.get(position).getType());
+        holder.binding.tvName.setText(arrayList.get(position).userDetails.firstName + " " + arrayList.get(position).userDetails.lastName);
+        holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
+        holder.binding.tvOrderId.setText("Id : " + arrayList.get(position).id);
+
+        if(arrayList.get(position).status.equals("new request")){
+            holder.binding.btnStatus.setText(arrayList.get(position).status);
             holder.binding.btnStatus.setBackgroundResource(R.color.color_green_one);
         }
 
-       else if(arrayList.get(position).getType().equals("pending")){
-            holder.binding.btnStatus.setText(arrayList.get(position).getType());
+       else if(arrayList.get(position).status.equals("Pending")){
+            holder.binding.btnStatus.setText(arrayList.get(position).status);
             holder.binding.btnStatus.setBackgroundResource(R.color.color_yellow_one);
         }
 
 
-        else if(arrayList.get(position).getType().equals("progress")){
+        else if(arrayList.get(position).status.equals("progress")){
             holder.binding.btnStatus.setText("Order Detail");
             holder.binding.btnStatus.setBackgroundResource(R.color.color_next);
         }
 
 
-        else if(arrayList.get(position).getType().equals("complete")){
+        else if(arrayList.get(position).status.equals("complete")){
             holder.binding.btnStatus.setVisibility(View.GONE);
 
         }
@@ -63,7 +67,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return 3;
+        return arrayList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

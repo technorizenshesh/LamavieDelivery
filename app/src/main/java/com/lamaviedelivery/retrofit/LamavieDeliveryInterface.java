@@ -2,6 +2,7 @@ package com.lamaviedelivery.retrofit;
 
 
 
+import com.lamaviedelivery.model.BookingModel;
 import com.lamaviedelivery.model.LoginModel;
 
 import java.util.Map;
@@ -78,6 +79,14 @@ public interface LamavieDeliveryInterface {
 
 
 
+    @FormUrlEncoded
+    @POST("get_orderdetails_driver_by_status")
+    Call<BookingModel> getAllBooking(@FieldMap Map<String, String> params);
+
+
+    @FormUrlEncoded
+    @POST("change_password")
+    Call<Map<String, String>> changePass(@FieldMap Map<String, String> params);
 }
 
 
