@@ -87,6 +87,27 @@ public interface LamavieDeliveryInterface {
     @FormUrlEncoded
     @POST("change_password")
     Call<Map<String, String>> changePass(@FieldMap Map<String, String> params);
+
+
+    @FormUrlEncoded
+    @POST("driver_accept_and_cancel_order")
+    Call<Map<String, String>> requestAcceptCancel(@FieldMap Map<String, String> params);
+
+    @Multipart
+    @POST("update_profile")
+    Call<LoginModel> profileUpdate(
+            @Part("first_name") RequestBody first_name,
+            @Part("last_name") RequestBody last_name,
+            @Part("email") RequestBody email,
+            @Part("mobile") RequestBody mobile,
+            @Part("country_code") RequestBody country_code,
+            @Part("address") RequestBody address,
+            @Part("dob") RequestBody dob,
+            @Part("gender") RequestBody gender,
+            @Part("user_id") RequestBody user_id,
+            @Part MultipartBody.Part file);
+
+
 }
 
 

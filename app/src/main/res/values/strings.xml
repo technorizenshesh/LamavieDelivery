@@ -73,5 +73,6 @@
 
     <string name="required">Required</string>
     <string name="password_does_not_matched">Password doesn\'t matched</string>
+    <string name="edit_profile">Edit Profile</string>
 
 </resources>

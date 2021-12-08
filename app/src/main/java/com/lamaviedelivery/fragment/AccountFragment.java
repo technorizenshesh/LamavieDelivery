@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.lamaviedelivery.ChangePassAct;
+import com.lamaviedelivery.EditProfileAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.FragmentAccountBinding;
 import com.lamaviedelivery.utils.DataManager;
@@ -34,18 +35,14 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(!DataManager.getInstance().getUserData(getActivity()).result.image.equals("")){
-            Glide.with(getActivity())
-                    .load(DataManager.getInstance().getUserData(getActivity()).result.image)
-                    .error(R.drawable.dummy)
-                    .into(binding.ivUser);
-        }
-        binding.tvName.setText(DataManager.getInstance().getUserData(getActivity()).result.firstName + " " +  DataManager.getInstance().getUserData(getActivity()).result.lastName);
-        binding.tvAddress.setText(DataManager.getInstance().getUserData(getActivity()).result.address);
+
 
         binding.layoutLogout.setOnClickListener(v -> LogOutAlert());
 
         binding.layoutChangePass.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChangePassAct.class)));
+
+        binding.layoutAccount.setOnClickListener(v -> startActivity(new Intent(getActivity(), EditProfileAct.class)));
+
 
     }
 
@@ -75,4 +72,16 @@ public class AccountFragment extends Fragment {
         alert11.show();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(!DataManager.getInstance().getUserData(getActivity()).result.image.equals("")){
+            Glide.with(getActivity())
+                    .load(DataManager.getInstance().getUserData(getActivity()).result.image)
+                    .error(R.drawable.dummy)
+                    .into(binding.ivUser);
+        }
+        binding.tvName.setText(DataManager.getInstance().getUserData(getActivity()).result.firstName + " " +  DataManager.getInstance().getUserData(getActivity()).result.lastName);
+        binding.tvAddress.setText(DataManager.getInstance().getUserData(getActivity()).result.address);
+    }
 }

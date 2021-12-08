@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.ItemRequestBinding;
 import com.lamaviedelivery.databinding.ItemTransactionBinding;
+import com.lamaviedelivery.listener.onPosListener;
 import com.lamaviedelivery.model.BookingModel;
 
 import java.util.ArrayList;
@@ -19,11 +20,13 @@ import java.util.ArrayList;
 public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewHolder> {
     Context context;
     ArrayList<BookingModel.Result>arrayList;
+    onPosListener listener;
 
 
-    public RequestAdapter(Context context, ArrayList<BookingModel.Result> arrayList) {
+    public RequestAdapter(Context context, ArrayList<BookingModel.Result> arrayList, onPosListener listener) {
         this.context = context;
         this.arrayList = arrayList;
+        this.listener =listener;
     }
 
     @NonNull
@@ -75,6 +78,8 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         public MyViewHolder(@NonNull ItemRequestBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
+
+            binding.btnStatus.setOnClickListener(v -> listener.onPos(getAdapterPosition()));
         }
     }
 }

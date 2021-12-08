@@ -19,6 +19,7 @@ import com.lamaviedelivery.R;
 import com.lamaviedelivery.VerifyActivity;
 import com.lamaviedelivery.adapter.RequestAdapter;
 import com.lamaviedelivery.databinding.FragmentInprogressBinding;
+import com.lamaviedelivery.listener.onPosListener;
 import com.lamaviedelivery.model.BookingModel;
 import com.lamaviedelivery.retrofit.ApiClient;
 import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
@@ -33,7 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AllFragment extends Fragment {
+public class AllFragment extends Fragment implements onPosListener {
     public String TAG = "AllFragment";
     LamavieDeliveryInterface apiInterface;
     FragmentInprogressBinding binding;
@@ -53,7 +54,7 @@ public class AllFragment extends Fragment {
         apiInterface = ApiClient.getClient().create(LamavieDeliveryInterface.class);
         arrayList = new ArrayList<>();
 
-        adapter = new RequestAdapter(getActivity(), arrayList);
+        adapter = new RequestAdapter(getActivity(), arrayList, AllFragment.this);
         binding.rvInprogress.setAdapter(adapter);
 
         if (NetworkAvailablity.checkNetworkStatus(getActivity())) getBookings();
@@ -104,5 +105,50 @@ public class AllFragment extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onPos(int position) {
+        BookingAccept(arrayList.get(position).id);
+    }
+
+    public void BookingAccept(String id) {
+        DataManager.getInstance().showProgressMessage(getActivity(), getString(R.string.please_wait));
+        Map<String, String> map = new HashMap<>();
+        map.put("order_id", id);
+        map.put("status", "Pickup");
+        Log.e(TAG, "get Current Booking Request" + map);
+        Call<Map<String, String>> loginCall = apiInterface.requestAcceptCancel(map);
+        loginCall.enqueue(new Callback<Map<String, String>>() {
+            @Override
+            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
+                DataManager.getInstance().hideProgressMessage();
+
+                try {
+                    Map<String, String> data = response.body();
+                    String responseString = new Gson().toJson(response.body());
+                    Log.e(TAG, "get Current Booking Response :" + responseString);
+                    if (data.get("status").equals("1")) {
+
+                        if (NetworkAvailablity.checkNetworkStatus(getActivity())) getBookings();
+                        else
+                            Toast.makeText(getActivity(), getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+                    } else if (data.get("status").equals("0")) {
+
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Map<String, String>> call, Throwable t) {
+                call.cancel();
+                DataManager.getInstance().hideProgressMessage();
+            }
+        });
+    }
+
 
 }

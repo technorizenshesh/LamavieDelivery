@@ -132,7 +132,7 @@
                             android:textSize="@dimen/_14sdp"
                             android:singleLine="true"
                             android:textColor="@color/color_black_two"
-                            android:text="@string/account_info"
+                            android:text="@string/edit_profile"
                             />
 
 

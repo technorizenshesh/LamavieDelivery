@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.adapter.RequestAdapter;
 import com.lamaviedelivery.databinding.FragmentInprogressBinding;
+import com.lamaviedelivery.listener.onPosListener;
 import com.lamaviedelivery.model.BookingModel;
 import com.lamaviedelivery.retrofit.ApiClient;
 import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
@@ -30,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CompleteFragment extends Fragment {
+public class CompleteFragment extends Fragment implements onPosListener {
     public String TAG = "CompleteFragment";
     LamavieDeliveryInterface apiInterface;
     FragmentInprogressBinding binding;
@@ -52,7 +53,7 @@ public class CompleteFragment extends Fragment {
         apiInterface = ApiClient.getClient().create(LamavieDeliveryInterface.class);
         arrayList = new ArrayList<>();
 
-        adapter = new RequestAdapter(getActivity(), arrayList);
+        adapter = new RequestAdapter(getActivity(), arrayList,CompleteFragment.this);
         binding.rvInprogress.setAdapter(adapter);
 
         if (NetworkAvailablity.checkNetworkStatus(getActivity())) getBookings();
@@ -102,5 +103,9 @@ public class CompleteFragment extends Fragment {
                 DataManager.getInstance().hideProgressMessage();
             }
         });
+    }
+
+    @Override
+    public void onPos(int position) {
     }
 }
