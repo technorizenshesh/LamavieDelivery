@@ -210,6 +210,22 @@ public class DataManager {
     }
 
 
+
+    public static String convertDateToString3(String date1) {
+        String str = "";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMMM yyyy");
+        try {
+            Date dt = format.parse(date1);
+            str = dateFormat.format(dt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Log.e("DateTime====",str);
+        return str;
+    }
+
+
     public static String convertStringToTime(String date1){
         String str = "";
 

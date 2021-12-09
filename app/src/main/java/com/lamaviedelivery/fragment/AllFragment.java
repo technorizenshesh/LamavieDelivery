@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.lamaviedelivery.LogWithMobileAct;
+import com.lamaviedelivery.OrderDetailAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.VerifyActivity;
 import com.lamaviedelivery.adapter.RequestAdapter;
@@ -108,7 +109,10 @@ public class AllFragment extends Fragment implements onPosListener {
 
     @Override
     public void onPos(int position) {
-        BookingAccept(arrayList.get(position).id);
+       // BookingAccept(arrayList.get(position).id);
+         startActivity(new Intent(getActivity(), OrderDetailAct.class)
+        .putExtra("orderDetail",arrayList.get(position)));
+
     }
 
     public void BookingAccept(String id) {

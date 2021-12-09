@@ -74,5 +74,12 @@
     <string name="required">Required</string>
     <string name="password_does_not_matched">Password doesn\'t matched</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="order_details">Order Details</string>
+    <string name="items">Items</string>
+
+    <string name="sub_total">Subtotal</string>
+    <string name="tax">Tax</string>
+    <string name="total">Total</string>
+    <string name="decline">decline</string>
 
 </resources>
