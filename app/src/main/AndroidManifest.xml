@@ -99,7 +99,14 @@
 
         <activity android:name=".OrderDetailAct"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+
+        <activity android:name=".TrackAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
 
         <provider
@@ -116,6 +123,12 @@
 
         <service
             android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+
+        <service
+            android:name=".service.UpdateLocationService"
             android:enabled="true"
             android:exported="true" />
 

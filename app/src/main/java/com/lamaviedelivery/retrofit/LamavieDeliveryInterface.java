@@ -4,6 +4,7 @@ package com.lamaviedelivery.retrofit;
 
 import com.lamaviedelivery.model.BookingModel;
 import com.lamaviedelivery.model.LoginModel;
+import com.lamaviedelivery.model.OrderDetailModel;
 
 import java.util.Map;
 
@@ -106,6 +107,13 @@ public interface LamavieDeliveryInterface {
             @Part("gender") RequestBody gender,
             @Part("user_id") RequestBody user_id,
             @Part MultipartBody.Part file);
+
+
+
+
+    @FormUrlEncoded
+    @POST("get_orderdetails_byid")
+    Call<OrderDetailModel> getOrderDetailsss(@FieldMap Map<String, String> params);
 
 
 }

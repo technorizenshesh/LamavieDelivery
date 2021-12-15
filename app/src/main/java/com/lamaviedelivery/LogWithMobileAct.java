@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.lamaviedelivery.databinding.ActivityLoginMobileBinding;
 import com.lamaviedelivery.retrofit.ApiClient;
@@ -28,7 +29,7 @@ public class LogWithMobileAct extends AppCompatActivity {
     public String TAG = "LogWithMobileAct";
     ActivityLoginMobileBinding binding;
     LamavieDeliveryInterface apiInterface;
-    String refreshedToken="123456";
+    String refreshedToken="";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,15 @@ public class LogWithMobileAct extends AppCompatActivity {
 
     private void initViews() {
         binding.btnSubmit.setOnClickListener(v -> {validation();});
-
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(instanceIdResult -> {
+            try {
+                refreshedToken = instanceIdResult.getToken();
+                Log.e("Token===", refreshedToken);
+                // Yay.. we have our new token now.
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 

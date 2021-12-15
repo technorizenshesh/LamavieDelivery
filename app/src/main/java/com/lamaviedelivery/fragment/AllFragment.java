@@ -111,48 +111,11 @@ public class AllFragment extends Fragment implements onPosListener {
     public void onPos(int position) {
        // BookingAccept(arrayList.get(position).id);
          startActivity(new Intent(getActivity(), OrderDetailAct.class)
-        .putExtra("orderDetail",arrayList.get(position)));
+        .putExtra("orderId",arrayList.get(position).id));
 
     }
 
-    public void BookingAccept(String id) {
-        DataManager.getInstance().showProgressMessage(getActivity(), getString(R.string.please_wait));
-        Map<String, String> map = new HashMap<>();
-        map.put("order_id", id);
-        map.put("status", "Pickup");
-        Log.e(TAG, "get Current Booking Request" + map);
-        Call<Map<String, String>> loginCall = apiInterface.requestAcceptCancel(map);
-        loginCall.enqueue(new Callback<Map<String, String>>() {
-            @Override
-            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
-                DataManager.getInstance().hideProgressMessage();
 
-                try {
-                    Map<String, String> data = response.body();
-                    String responseString = new Gson().toJson(response.body());
-                    Log.e(TAG, "get Current Booking Response :" + responseString);
-                    if (data.get("status").equals("1")) {
-
-                        if (NetworkAvailablity.checkNetworkStatus(getActivity())) getBookings();
-                        else
-                            Toast.makeText(getActivity(), getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
-                    } else if (data.get("status").equals("0")) {
-
-                    }
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Map<String, String>> call, Throwable t) {
-                call.cancel();
-                DataManager.getInstance().hideProgressMessage();
-            }
-        });
-    }
 
 
 }

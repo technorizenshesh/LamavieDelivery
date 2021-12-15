@@ -81,5 +81,8 @@
     <string name="tax">Tax</string>
     <string name="total">Total</string>
     <string name="decline">decline</string>
+    <string name="accept">Accept</string>
+    <string name="view_details">View Details</string>
+    <string name="track">Track</string>
 
 </resources>

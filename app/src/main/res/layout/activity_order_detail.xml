@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none">
@@ -89,7 +89,7 @@
 
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvMyCart"
+                        android:id="@+id/rvOrder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/header"
@@ -203,16 +203,19 @@
 
 
             </RelativeLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
 
         <LinearLayout
+            android:id="@+id/layoutButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_alignParentBottom="true"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:visibility="gone">
 
             <LinearLayout
+                android:id="@+id/btnAccept"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
@@ -223,7 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="@string/items"
+                    android:text="@string/accept"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_13sdp" />
 
@@ -231,6 +234,7 @@
 
 
             <LinearLayout
+                android:id="@+id/btnDecline"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".5"
@@ -251,6 +255,44 @@
 
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutTrack"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:visibility="gone">
+
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/btnTrack"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/color_next">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/track"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 

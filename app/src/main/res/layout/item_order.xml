@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center">
+
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_toLeftOf="@+id/tvQuantity1"
+                android:fontFamily="@font/poppins_semibold"
+                android:maxLines="3"
+                android:text="Coat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+
+
+
+            <TextView
+                android:id="@+id/tvQuantity1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/tv"
+                android:layout_marginRight="@dimen/_7sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="1"
+                android:textColor="@color/color_ellipse_one"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/tvPrice"
+                android:layout_marginRight="@dimen/_7sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="x"
+                android:textColor="@color/color_ellipse_one"
+                android:textSize="@dimen/_12sdp" />
+
+
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/poppins_regular"
+                android:text="$60"
+                android:textColor="@color/color_ellipse_one"
+                android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                android:id="@+id/layoutQut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tvMinus"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textAllCaps="true"
+                    android:textColor="@color/color_next"
+                    android:textSize="@dimen/_15sdp"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/rounded_fully_blue_bg"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <TextView
+                    android:id="@+id/tvPlus"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textAllCaps="true"
+                    android:textColor="@color/color_next"
+                    android:textSize="@dimen/_15sdp"
+
+                    />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@color/color_grey_two" />
+
+    </LinearLayout>
+
+</layout>
