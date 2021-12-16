@@ -84,5 +84,12 @@
     <string name="accept">Accept</string>
     <string name="view_details">View Details</string>
     <string name="track">Track</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="track_order">Track Order</string>
+
+    <!-- key for map-->
+    <string name="google_maps_key">AIzaSyAXTJrvnDTC8AjYzK2dPatsSAMJaTIc-c0</string>
+    <string name="pickup">Pickup Location</string>
+    <string name="confirmed">Confirmed</string>
 
 </resources>

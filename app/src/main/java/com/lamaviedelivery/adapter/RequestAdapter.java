@@ -43,8 +43,8 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
         holder.binding.tvOrderId.setText("Id : " + arrayList.get(position).id);
 
-        if(arrayList.get(position).status.equals("new request")){
-            holder.binding.btnStatus.setText(arrayList.get(position).status);
+        if(arrayList.get(position).status.equals("Accept")){
+            holder.binding.btnStatus.setText(context.getString(R.string.confirmed));
             holder.binding.btnStatus.setBackgroundResource(R.color.color_green_one);
         }
 

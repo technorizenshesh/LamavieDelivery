@@ -94,7 +94,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
 
                 DrawPolyLine();
 
-                animateCamera(DropOffLatLng);
+                animateCamera(PickUpLatLng);
             }
 
             //  binding.tvAddress.setText(getAddress(TrackAct.this,Double.parseDouble(intent.getStringExtra("latitude")), Double.parseDouble(intent.getStringExtra("longitude"))));
@@ -114,7 +114,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
 
     private void initViews() {
 
-        if(getIntent()!=null) model = getIntent().getParcelableExtra("OrderDetail");
+        if(getIntent()!=null) model = (OrderDetailModel) getIntent().getSerializableExtra("OrderDetail");
 
         if(model!=null){
             DropOffLatLng = new LatLng(Double.parseDouble(model.result.lat),Double.parseDouble(model.result.lon));
@@ -122,6 +122,9 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
             binding.tvProduct.setText(model.result.itemDetails.size() + "Items");
 
         }
+
+
+        binding.ivBack.setOnClickListener(v -> finish());
 
 
         PicUpMarker = new MarkerOptions().title("Pick Up Location")

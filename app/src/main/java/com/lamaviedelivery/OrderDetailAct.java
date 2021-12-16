@@ -2,6 +2,7 @@ package com.lamaviedelivery;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -69,8 +70,8 @@ public class OrderDetailAct extends AppCompatActivity {
                 Toast.makeText(OrderDetailAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
         });
 
-        binding.layoutTrack.setOnClickListener(v -> {
-            startActivity(new Intent(OrderDetailAct.this,TrackAct.class).putExtra("OrderDetail",model));
+        binding.btnTrack.setOnClickListener(v -> {
+            startActivity(new Intent(OrderDetailAct.this,TrackAct.class).putExtra("OrderDetail", model));
         });
 
 
@@ -142,14 +143,14 @@ public class OrderDetailAct extends AppCompatActivity {
                         binding.tvtotal.setText("$" + String.format("%.2f", total));
                         binding.rvOrder.setAdapter(new OrderAdapter(OrderDetailAct.this, (ArrayList<OrderDetailModel.Result.ItemDetail>) model.result.itemDetails));
 
-                        if(model.result.status.equals("Accept")) {
+                      /*  if(model.result.status.equals("Accept")) {
                             binding.layoutButton.setVisibility(View.VISIBLE);
                             binding.layoutTrack.setVisibility(View.GONE);
                         }
                         else {
                             binding.layoutButton.setVisibility(View.GONE);
                             binding.layoutTrack.setVisibility(View.VISIBLE);
-                        }
+                        }*/
 
 
 

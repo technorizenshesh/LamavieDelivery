@@ -92,7 +92,7 @@ public class OrderDetailModel implements Serializable {
         public List<ItemDetail> itemDetails = null;
 
 
-        public class UserDetails {
+        public class UserDetails  implements Serializable{
 
             @SerializedName("id")
             @Expose
@@ -163,7 +163,7 @@ public class OrderDetailModel implements Serializable {
         }
 
 
-        public class ItemDetail {
+        public class ItemDetail  implements Serializable {
 
             @SerializedName("id")
             @Expose
