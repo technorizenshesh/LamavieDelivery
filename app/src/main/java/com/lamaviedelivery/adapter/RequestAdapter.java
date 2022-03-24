@@ -21,6 +21,7 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
     Context context;
     ArrayList<BookingModel.Result>arrayList;
     onPosListener listener;
+    ArrayList<String>stringArrayList = new ArrayList<>();
 
 
     public RequestAdapter(Context context, ArrayList<BookingModel.Result> arrayList, onPosListener listener) {
@@ -42,6 +43,12 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         holder.binding.tvName.setText(arrayList.get(position).userDetails.firstName + " " + arrayList.get(position).userDetails.lastName);
         holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
         holder.binding.tvOrderId.setText("Id : " + arrayList.get(position).id);
+        for(int i = 0;i<arrayList.get(position).itemDetails.size();i++){
+            if (arrayList.get(position).itemDetails.size()!=0)
+            stringArrayList.add(arrayList.get(position).itemDetails.get(i).childCateName);
+        }
+        if (arrayList.get(position).itemDetails.size()!=0) holder.binding.tvItems.setText(commaSeprated(stringArrayList));
+
 
         if(arrayList.get(position).status.equals("Accept")){
             holder.binding.btnStatus.setText(context.getString(R.string.confirmed));
@@ -54,8 +61,8 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         }
 
 
-        else if(arrayList.get(position).status.equals("progress")){
-            holder.binding.btnStatus.setText("Order Detail");
+        else if(arrayList.get(position).status.equals("Pickup")){
+            holder.binding.btnStatus.setText(arrayList.get(position).status);
             holder.binding.btnStatus.setBackgroundResource(R.color.color_next);
         }
 
@@ -82,4 +89,15 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
             binding.btnStatus.setOnClickListener(v -> listener.onPos(getAdapterPosition()));
         }
     }
+
+
+    public String commaSeprated(ArrayList<String> arrayList) {
+        StringBuilder result = new StringBuilder();
+        for (String string : arrayList) {
+            result.append(string);
+            result.append(",");
+        }
+        return result.length() > 0 ? /*result.substring(0, result.length() - 1)*/result.deleteCharAt(result.length() - 1).toString() : "";
+    }
+
 }

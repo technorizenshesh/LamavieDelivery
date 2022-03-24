@@ -2,9 +2,9 @@ package com.lamaviedelivery.retrofit;
 
 public class Constant {
 
-    public static final String BASE_URL =  "https://technorizen.com/lamavie_laundry/webservice/";           //    ""; //https://www.lamavie.ml/lamavie/webservice/
+    public static final String BASE_URL1 =  "https://technorizen.com/lamavie_laundry/webservice/";           //    ""; //https://www.lamavie.ml/lamavie/webservice/
 
-    public static final String BASE_URL1 = ""; //
+    public static final String BASE_URL = "https://lamavietech.ml/lamavie_laundry/webservice/"; //
 
 
 

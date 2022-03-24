@@ -108,6 +108,10 @@
             android:theme="@style/AppTheme.NoActionBar"
             />
 
+        <activity android:name=".OrderHistoryAct"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
 
         <provider
             android:name="androidx.core.content.FileProvider"

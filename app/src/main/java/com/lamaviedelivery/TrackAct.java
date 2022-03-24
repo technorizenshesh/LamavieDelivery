@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -35,12 +36,18 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
+import com.lamaviedelivery.adapter.OrderAdapter;
 import com.lamaviedelivery.databinding.ActivityTrackBinding;
 import com.lamaviedelivery.maps.DrawPollyLine;
 import com.lamaviedelivery.model.OrderDetailModel;
+import com.lamaviedelivery.retrofit.ApiClient;
+import com.lamaviedelivery.retrofit.Constant;
+import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
 import com.lamaviedelivery.service.UpdateLocationService;
 import com.lamaviedelivery.utils.DataManager;
 import com.lamaviedelivery.utils.GPSTracker;
+import com.lamaviedelivery.utils.NetworkAvailablity;
+import com.lamaviedelivery.utils.SessionManager;
 
 import java.sql.Driver;
 import java.util.ArrayList;
@@ -52,7 +59,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
+    public String TAG = "TrackAct";
     ActivityTrackBinding binding;
+    LamavieDeliveryInterface apiInterface;
     GoogleMap mMap;
     private PolylineOptions lineOptions;
     private LatLng PickUpLatLng, DropOffLatLng, carLatLng, prelatLng;
@@ -106,22 +115,18 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gpsTracker = new GPSTracker(TrackAct.this);
+        apiInterface = ApiClient.getClient().create(LamavieDeliveryInterface.class);
         binding =   DataBindingUtil.setContentView(this,R.layout.activity_track);
         initViews();
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+       SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+       mapFragment.getMapAsync(this);
     }
 
     private void initViews() {
 
         if(getIntent()!=null) model = (OrderDetailModel) getIntent().getSerializableExtra("OrderDetail");
+         setDataaa();
 
-        if(model!=null){
-            DropOffLatLng = new LatLng(Double.parseDouble(model.result.lat),Double.parseDouble(model.result.lon));
-            binding.tvAddress.setText(model.result.address);
-            binding.tvProduct.setText(model.result.itemDetails.size() + "Items");
-
-        }
 
 
         binding.ivBack.setOnClickListener(v -> finish());
@@ -134,7 +139,47 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
 
         carMarker1 = new MarkerOptions().title("Car")
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_gray));
+
+        binding.btnSave.setOnClickListener(v -> {
+            if(model.result.status.equals("Accept")){
+                if(binding.etOtp.getText().toString().equals("")) {
+                    Toast.makeText(TrackAct.this, getString(R.string.please_enter_otp), Toast.LENGTH_SHORT).show();
+                }else {
+                     if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Pickup");
+                   else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+                }
+            }
+            else {
+                if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Deliver");
+               else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+
+
+    public void setDataaa(){
+        if(model!=null){
+            DropOffLatLng = new LatLng(Double.parseDouble(model.result.lat),Double.parseDouble(model.result.lon));
+            PickUpLatLng = new LatLng(Double.parseDouble(model.result.pickupLat),Double.parseDouble(model.result.pickupLon));
+
+
+            if (model.result.status.equals("Accept")) {
+                binding.tvAddressName.setText(getString(R.string.pickup_address));
+                binding.tvAddress.setText(model.result.pickupAddress);
+                binding.tvBtnOrder.setText(getString(R.string.pickup));
+                binding.etOtp.setVisibility(View.VISIBLE);
+            }else if(model.result.status.equals("Pickup")){
+                binding.tvAddressName.setText(getString(R.string.delivery_address));
+                binding.tvAddress.setText(model.result.address);
+                binding.tvBtnOrder.setText(getString(R.string.deliver_order));
+                binding.etOtp.setVisibility(View.GONE);
+            }
+            binding.tvProduct.setText(model.result.itemDetails.size() + "Items");
+
+        }
+    }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -341,4 +386,85 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
             }
         });
     }
+
+    private void orderChangeStatus(String status) {
+        Map<String, String> map = new HashMap<>();
+        map.put("status", status);
+        map.put("order_id", model.result.id+"");
+        map.put("otp", binding.etOtp.getText().toString());
+        map.put("date",DataManager.getCurrent12());
+        map.put("time",DataManager.getCurrentTime12());
+        Log.e(TAG, "Order status change REQUEST" + map);
+        Call<Map<String, String>> subCategoryCall = apiInterface.requestAcceptCancel(map);
+        subCategoryCall.enqueue(new Callback<Map<String, String>>() {
+            @Override
+            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
+                try {
+                    Map<String, String> data = response.body();
+                    if (data.get("status").equals("1")) {
+                        String dataResponse = new Gson().toJson(response.body());
+                        Log.e(TAG, "Order status change RESPONSE" + dataResponse);
+                        if(status.equals("Deliver")){
+                            startActivity(new Intent(TrackAct.this,HomeAct.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                           finish();
+                        }
+                        else {
+
+                            if (NetworkAvailablity.checkNetworkStatus(TrackAct.this)) getOrderDetail();
+                            else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    } else if (data.get("status").equals("0")) {
+                        Toast.makeText(TrackAct.this, data.get("message"), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<Map<String, String>> call, Throwable t) {
+                call.cancel();
+                DataManager.getInstance().hideProgressMessage();
+            }
+        });
+    }
+
+
+    public void getOrderDetail() {
+        DataManager.getInstance().showProgressMessage(TrackAct.this, getString(R.string.please_wait));
+        Map<String, String> map = new HashMap<>();
+        map.put("order_id", model.result.id+"");
+        Log.e(TAG, "get Current OrderDetail Request" + map);
+        Call<OrderDetailModel> loginCall = apiInterface.getOrderDetailsss(map);
+        loginCall.enqueue(new Callback<OrderDetailModel>() {
+            @Override
+            public void onResponse(Call<OrderDetailModel> call, Response<OrderDetailModel> response) {
+                DataManager.getInstance().hideProgressMessage();
+                try {
+                    model = response.body();
+                    String responseString = new Gson().toJson(response.body());
+                    Log.e(TAG, "get Current OrderDetail Response :" + responseString);
+                    if (model.status.equals("1")) {
+                       setDataaa();
+                    } else if (model.status.equals("0")) {
+                        Toast.makeText(TrackAct.this, model.message, Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OrderDetailModel> call, Throwable t) {
+                call.cancel();
+                DataManager.getInstance().hideProgressMessage();
+            }
+        });
+    }
+
 }

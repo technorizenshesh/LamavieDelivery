@@ -3,6 +3,7 @@ package com.lamaviedelivery.retrofit;
 
 
 import com.lamaviedelivery.model.BookingModel;
+import com.lamaviedelivery.model.HistoryModel;
 import com.lamaviedelivery.model.LoginModel;
 import com.lamaviedelivery.model.OrderDetailModel;
 
@@ -114,6 +115,10 @@ public interface LamavieDeliveryInterface {
     @FormUrlEncoded
     @POST("get_orderdetails_byid")
     Call<OrderDetailModel> getOrderDetailsss(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST("get_driver_orderhistory")
+    Call<HistoryModel> getOrderHistory(@FieldMap Map<String, String> params);
 
 
 }

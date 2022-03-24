@@ -131,6 +131,56 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/layoutExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            >
+
+
+            <TextView
+                android:id="@+id/tvExtra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:maxLines="3"
+                android:text="@string/extra_items"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <TextView
+                android:id="@+id/tvItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/tvItemPrice"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/tvExtra"
+                android:fontFamily="@font/poppins_regular"
+                android:text="$60"
+                android:textColor="@color/color_ellipse_one"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <TextView
+                android:id="@+id/tvItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/poppins_regular"
+                android:text="$60"
+                android:textColor="@color/color_ellipse_one"
+                android:textSize="@dimen/_10sdp" />
+
+        </RelativeLayout>
+
 
         <View
             android:layout_width="match_parent"

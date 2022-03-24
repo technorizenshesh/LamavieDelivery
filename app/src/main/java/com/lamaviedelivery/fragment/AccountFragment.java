@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.lamaviedelivery.ChangePassAct;
 import com.lamaviedelivery.EditProfileAct;
+import com.lamaviedelivery.OrderDetailAct;
+import com.lamaviedelivery.OrderHistoryAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.FragmentAccountBinding;
 import com.lamaviedelivery.utils.DataManager;
@@ -42,6 +44,8 @@ public class AccountFragment extends Fragment {
         binding.layoutChangePass.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChangePassAct.class)));
 
         binding.layoutAccount.setOnClickListener(v -> startActivity(new Intent(getActivity(), EditProfileAct.class)));
+
+        binding.layoutHistory.setOnClickListener(v -> startActivity(new Intent(getActivity(), OrderHistoryAct.class)));
 
 
     }

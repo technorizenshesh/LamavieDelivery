@@ -78,6 +78,90 @@
                         android:textSize="@dimen/_13sdp" />
 
 
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/pickup_location"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+
+
+
+                        <TextView
+                            android:id="@+id/tvPickup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="affsf"
+                            android:textColor="@color/color_grey_two"
+                            android:textSize="@dimen/_13sdp" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/delivery_location"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:id="@+id/tvDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="affsf"
+                            android:textColor="@color/color_grey_two"
+                            android:textSize="@dimen/_13sdp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/payment_type"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            android:id="@+id/tvPaymentType1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:textColor="@color/color_grey_two"
+                            android:textSize="@dimen/_13sdp" />
+
+
+                    </LinearLayout>
+
+
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

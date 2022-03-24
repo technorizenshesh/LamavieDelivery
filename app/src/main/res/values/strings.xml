@@ -89,7 +89,17 @@
 
     <!-- key for map-->
     <string name="google_maps_key">AIzaSyAXTJrvnDTC8AjYzK2dPatsSAMJaTIc-c0</string>
-    <string name="pickup">Pickup Location</string>
+    <string name="pickup">Pickup Order</string>
     <string name="confirmed">Confirmed</string>
+    <string name="pickup_location">Pickup Location :  </string>
+    <string name="delivery_location">Delivery Location :  </string>
+    <string name="extra_items">Extra items : </string>
+    <string name="payment_type">Payment type :</string>
+    <string name="pickup_address">Pickup Address</string>
+    <string name="otp">Enter Otp</string>
+    <string name="please_enter_otp">Please enter otp</string>
+    <string name="deliver_order">Deliver Order</string>
+    <string name="no_order_found">No order found</string>
+
 
 </resources>

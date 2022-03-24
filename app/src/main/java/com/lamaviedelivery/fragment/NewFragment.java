@@ -1,5 +1,6 @@
 package com.lamaviedelivery.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
+import com.lamaviedelivery.OrderDetailAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.adapter.RequestAdapter;
 import com.lamaviedelivery.databinding.FragmentInprogressBinding;
@@ -66,7 +68,7 @@ public class NewFragment extends Fragment implements onPosListener {
         DataManager.getInstance().showProgressMessage(getActivity(), getString(R.string.please_wait));
         Map<String, String> map = new HashMap<>();
         map.put("user_id", DataManager.getInstance().getUserData(getActivity()).result.id);
-        map.put("status", "Progress");
+        map.put("status", "Pickup");
         Log.e(TAG, "get Current Booking Request" + map);
         Call<BookingModel> loginCall = apiInterface.getAllBooking(map);
         loginCall.enqueue(new Callback<BookingModel>() {
@@ -106,7 +108,9 @@ public class NewFragment extends Fragment implements onPosListener {
 
     @Override
     public void onPos(int position) {
-        BookingAccept(arrayList.get(position).id);
+       // BookingAccept(arrayList.get(position).id);
+        startActivity(new Intent(getActivity(), OrderDetailAct.class)
+                .putExtra("orderId",arrayList.get(position).id));
     }
 
 

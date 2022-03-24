@@ -141,6 +141,11 @@ public class OrderDetailAct extends AppCompatActivity {
                         binding.tvSubtotal.setText("$" + String.format("%.2f", subTotal));
                         binding.tvTax.setText("$" + String.format("%.2f", tax));
                         binding.tvtotal.setText("$" + String.format("%.2f", total));
+                        binding.tvPickup.setText(" " +model.result.pickupAddress);
+                        binding.tvDelivery.setText(" "+model.result.address);
+                        binding.tvPaymentType1.setText(" "+model.result.paymentType);
+
+
                         binding.rvOrder.setAdapter(new OrderAdapter(OrderDetailAct.this, (ArrayList<OrderDetailModel.Result.ItemDetail>) model.result.itemDetails));
 
                       /*  if(model.result.status.equals("Accept")) {
@@ -173,6 +178,11 @@ public class OrderDetailAct extends AppCompatActivity {
     }
 
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (NetworkAvailablity.checkNetworkStatus(OrderDetailAct.this)) getOrderDetail(orderId);
+        else Toast.makeText(OrderDetailAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+    }
 
 }

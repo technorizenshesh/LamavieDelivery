@@ -84,15 +84,29 @@ public class OrderDetailModel implements Serializable {
         @SerializedName("tax")
         @Expose
         public String tax;
+        @SerializedName("pickup_address")
+        @Expose
+        public String pickupAddress;
+        @SerializedName("pickup_lat")
+        @Expose
+        public String pickupLat;
+        @SerializedName("pickup_lon")
+        @Expose
+        public String pickupLon;
+        @SerializedName("otp")
+        @Expose
+        public String otp;
         @SerializedName("user_details")
         @Expose
         public UserDetails userDetails;
+        @SerializedName("driver_details")
+        @Expose
+        public DriverDetails driverDetails;
         @SerializedName("item_details")
         @Expose
         public List<ItemDetail> itemDetails = null;
 
-
-        public class UserDetails  implements Serializable{
+        public class UserDetails implements Serializable{
 
             @SerializedName("id")
             @Expose
@@ -162,8 +176,77 @@ public class OrderDetailModel implements Serializable {
 
         }
 
+        public class DriverDetails implements Serializable{
 
-        public class ItemDetail  implements Serializable {
+            @SerializedName("id")
+            @Expose
+            public String id;
+            @SerializedName("type")
+            @Expose
+            public String type;
+            @SerializedName("user_name")
+            @Expose
+            public String userName;
+            @SerializedName("first_name")
+            @Expose
+            public String firstName;
+            @SerializedName("last_name")
+            @Expose
+            public String lastName;
+            @SerializedName("mobile")
+            @Expose
+            public String mobile;
+            @SerializedName("email")
+            @Expose
+            public String email;
+            @SerializedName("password")
+            @Expose
+            public String password;
+            @SerializedName("image")
+            @Expose
+            public String image;
+            @SerializedName("otp")
+            @Expose
+            public String otp;
+            @SerializedName("country_code")
+            @Expose
+            public String countryCode;
+            @SerializedName("lat")
+            @Expose
+            public String lat;
+            @SerializedName("lon")
+            @Expose
+            public String lon;
+            @SerializedName("dob")
+            @Expose
+            public String dob;
+            @SerializedName("address")
+            @Expose
+            public String address;
+            @SerializedName("gender")
+            @Expose
+            public String gender;
+            @SerializedName("status")
+            @Expose
+            public String status;
+            @SerializedName("social_id")
+            @Expose
+            public String socialId;
+            @SerializedName("register_id")
+            @Expose
+            public String registerId;
+            @SerializedName("ios_register_id")
+            @Expose
+            public Object iosRegisterId;
+            @SerializedName("date_time")
+            @Expose
+            public String dateTime;
+
+
+
+        }
+
+        public class ItemDetail implements Serializable{
 
             @SerializedName("id")
             @Expose
@@ -186,16 +269,37 @@ public class OrderDetailModel implements Serializable {
             @SerializedName("date_time")
             @Expose
             public String dateTime;
-
             @SerializedName("quantity")
             @Expose
             public String quantity;
+            @SerializedName("item_id")
+            @Expose
+            public String itemId;
+            @SerializedName("extra_options")
+            @Expose
+            public List<ExtraOption> extraOptions = null;
+
+            public class ExtraOption implements Serializable{
+
+                @SerializedName("id")
+                @Expose
+                public String id;
+                @SerializedName("name")
+                @Expose
+                public String name;
+                @SerializedName("price")
+                @Expose
+                public String price;
+                @SerializedName("date_time")
+                @Expose
+                public String dateTime;
+
+
+
+            }
 
         }
 
     }
 
 }
-
-
-

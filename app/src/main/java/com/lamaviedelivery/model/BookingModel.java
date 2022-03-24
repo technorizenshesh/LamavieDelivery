@@ -38,6 +38,11 @@ public class BookingModel implements Serializable{
         @SerializedName("address")
         @Expose
         public String address;
+
+        @SerializedName("pickup_address")
+        @Expose
+        public String pickupAddress;
+
         @SerializedName("payment_type")
         @Expose
         public String paymentType;
@@ -77,6 +82,14 @@ public class BookingModel implements Serializable{
         @SerializedName("lon")
         @Expose
         public String lon;
+
+        @SerializedName("pickup_lat")
+        @Expose
+        public String pickupLat;
+        @SerializedName("pickup_lon")
+        @Expose
+        public String pickupLon;
+
         @SerializedName("address_type")
         @Expose
         public String addressType;
