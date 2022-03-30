@@ -100,6 +100,8 @@
     <string name="please_enter_otp">Please enter otp</string>
     <string name="deliver_order">Deliver Order</string>
     <string name="no_order_found">No order found</string>
+    <string name="in_progress">In Progress</string>
+    <string name="shipped">Shipped</string>
 
 
 </resources>

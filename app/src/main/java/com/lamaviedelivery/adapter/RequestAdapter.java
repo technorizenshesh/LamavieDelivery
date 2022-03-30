@@ -50,7 +50,7 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         if (arrayList.get(position).itemDetails.size()!=0) holder.binding.tvItems.setText(commaSeprated(stringArrayList));
 
 
-        if(arrayList.get(position).status.equals("Accept")){
+        if(arrayList.get(position).status.equals("Confirmed")){
             holder.binding.btnStatus.setText(context.getString(R.string.confirmed));
             holder.binding.btnStatus.setBackgroundResource(R.color.color_green_one);
         }
@@ -67,7 +67,7 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
         }
 
 
-        else if(arrayList.get(position).status.equals("complete")){
+        else if(arrayList.get(position).status.equals("Delivered")){
             holder.binding.btnStatus.setVisibility(View.GONE);
 
         }

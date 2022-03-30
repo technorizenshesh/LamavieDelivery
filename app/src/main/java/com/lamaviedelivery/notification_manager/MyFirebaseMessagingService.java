@@ -46,11 +46,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             try {
                 String title = "", key = "",message="";
                 object = new JSONObject(data.get("message"));
-                title = object.getString("title");
+             //   title = object.getString("title");
                 key = object.getString("key");
-                message = object.getString("message");
+             //   message = object.getString("message");
 
-                if(key.equals("New Booking")){
+                if(key.equals("Confirmed")){
+                    title = "New Order";
+                    message = "New Order";
                     Intent intent1 = new Intent("Job_Status_Action");
                     intent1.putExtra("status",key);
                     sendBroadcast(intent1);

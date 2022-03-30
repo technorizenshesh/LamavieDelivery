@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "1084286396539-tm22g1g5lg1fkelslku16lavpdqnfj80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lamaviedelivery",
+            "certificate_hash": "4a54a0201b383cca1b8c056aecfb715e2f24fe05"
+          }
+        },
+        {
           "client_id": "1084286396539-rjha7h3fat1soq7b1u1pei7b3nj3478h.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -56,6 +64,14 @@
           "android_info": {
             "package_name": "com.lamavieuser",
             "certificate_hash": "ba37d669452cddbc97677e37ff32eda8da4790f5"
+          }
+        },
+        {
+          "client_id": "1084286396539-jiilmtunk8hhjf3b9qeke13atei8s70k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lamavieuser",
+            "certificate_hash": "4a54a0201b383cca1b8c056aecfb715e2f24fe05"
           }
         },
         {

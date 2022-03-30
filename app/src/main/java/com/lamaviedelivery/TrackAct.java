@@ -141,7 +141,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_gray));
 
         binding.btnSave.setOnClickListener(v -> {
-            if(model.result.status.equals("Accept")){
+            if(model.result.status.equals("Confirmed")){
                 if(binding.etOtp.getText().toString().equals("")) {
                     Toast.makeText(TrackAct.this, getString(R.string.please_enter_otp), Toast.LENGTH_SHORT).show();
                 }else {
@@ -149,8 +149,20 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
                    else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
                 }
             }
-            else {
-                if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Deliver");
+
+            else if(model.result.status.equals("Pickup")) {
+                if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Progress");
+                else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+            }
+
+            else if(model.result.status.equals("Progress")) {
+                if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Shipped");
+                else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
+            }
+
+
+            else if(model.result.status.equals("Shipped")) {
+                if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Delivered");
                else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
             }
         });
@@ -164,7 +176,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
             PickUpLatLng = new LatLng(Double.parseDouble(model.result.pickupLat),Double.parseDouble(model.result.pickupLon));
 
 
-            if (model.result.status.equals("Accept")) {
+            if (model.result.status.equals("Confirmed")) {
                 binding.tvAddressName.setText(getString(R.string.pickup_address));
                 binding.tvAddress.setText(model.result.pickupAddress);
                 binding.tvBtnOrder.setText(getString(R.string.pickup));
@@ -172,9 +184,29 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
             }else if(model.result.status.equals("Pickup")){
                 binding.tvAddressName.setText(getString(R.string.delivery_address));
                 binding.tvAddress.setText(model.result.address);
+                binding.tvBtnOrder.setText(getString(R.string.in_progress));
+                binding.etOtp.setVisibility(View.GONE);
+            }
+            else if(model.result.status.equals("Progress")){
+                binding.tvAddressName.setText(getString(R.string.delivery_address));
+                binding.tvAddress.setText(model.result.address);
+                binding.tvBtnOrder.setText(getString(R.string.shipped));
+                binding.etOtp.setVisibility(View.GONE);
+            }
+
+
+            else if(model.result.status.equals("Shipped")){
+                binding.tvAddressName.setText(getString(R.string.delivery_address));
+                binding.tvAddress.setText(model.result.address);
                 binding.tvBtnOrder.setText(getString(R.string.deliver_order));
                 binding.etOtp.setVisibility(View.GONE);
             }
+
+
+
+
+
+
             binding.tvProduct.setText(model.result.itemDetails.size() + "Items");
 
         }
@@ -404,12 +436,11 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
                     if (data.get("status").equals("1")) {
                         String dataResponse = new Gson().toJson(response.body());
                         Log.e(TAG, "Order status change RESPONSE" + dataResponse);
-                        if(status.equals("Deliver")){
+                        if(status.equals("Delivered")){
                             startActivity(new Intent(TrackAct.this,HomeAct.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
                            finish();
                         }
                         else {
-
                             if (NetworkAvailablity.checkNetworkStatus(TrackAct.this)) getOrderDetail();
                             else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
 

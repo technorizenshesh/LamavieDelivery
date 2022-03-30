@@ -69,7 +69,7 @@ public class AllFragment extends Fragment implements onPosListener {
         DataManager.getInstance().showProgressMessage(getActivity(), getString(R.string.please_wait));
         Map<String, String> map = new HashMap<>();
         map.put("user_id", DataManager.getInstance().getUserData(getActivity()).result.id);
-        map.put("status", "Accept");
+        map.put("status", "Confirmed");
         Log.e(TAG, "get Current Booking Request" + map);
         Call<BookingModel> loginCall = apiInterface.getAllBooking(map);
         loginCall.enqueue(new Callback<BookingModel>() {
