@@ -38,6 +38,8 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.lamaviedelivery.adapter.OrderAdapter;
 import com.lamaviedelivery.databinding.ActivityTrackBinding;
+import com.lamaviedelivery.fragment.OrderStatusBottomSheet;
+import com.lamaviedelivery.listener.StatusListener;
 import com.lamaviedelivery.maps.DrawPollyLine;
 import com.lamaviedelivery.model.OrderDetailModel;
 import com.lamaviedelivery.retrofit.ApiClient;
@@ -53,12 +55,13 @@ import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
+public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback, StatusListener {
     public String TAG = "TrackAct";
     ActivityTrackBinding binding;
     LamavieDeliveryInterface apiInterface;
@@ -165,6 +168,10 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
                 if(NetworkAvailablity.checkNetworkStatus(TrackAct.this)) orderChangeStatus("Delivered");
                else Toast.makeText(TrackAct.this, getString(R.string.network_failure), Toast.LENGTH_SHORT).show();
             }
+        });
+
+        binding.tvDetail.setOnClickListener(v -> {
+            new OrderStatusBottomSheet(model.result.id).callBack(this::onStatus).show(getSupportFragmentManager(),"");
         });
     }
 
@@ -426,6 +433,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
         map.put("otp", binding.etOtp.getText().toString());
         map.put("date",DataManager.getCurrent12());
         map.put("time",DataManager.getCurrentTime12());
+        map.put("timezone", TimeZone.getDefault().getID()+"");
         Log.e(TAG, "Order status change REQUEST" + map);
         Call<Map<String, String>> subCategoryCall = apiInterface.requestAcceptCancel(map);
         subCategoryCall.enqueue(new Callback<Map<String, String>>() {
@@ -498,4 +506,8 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback {
         });
     }
 
+    @Override
+    public void onStatus(String status) {
+
+    }
 }

@@ -6,6 +6,7 @@ import com.lamaviedelivery.model.BookingModel;
 import com.lamaviedelivery.model.HistoryModel;
 import com.lamaviedelivery.model.LoginModel;
 import com.lamaviedelivery.model.OrderDetailModel;
+import com.lamaviedelivery.model.OrderStatus;
 
 import java.util.Map;
 
@@ -120,6 +121,21 @@ public interface LamavieDeliveryInterface {
     @POST("get_driver_orderhistory")
     Call<HistoryModel> getOrderHistory(@FieldMap Map<String, String> params);
 
+
+    @FormUrlEncoded
+    @POST("order_status_history")
+    Call<OrderStatus> getStatus(@FieldMap Map<String, String> params);
+
+
+
+    @Multipart
+    @POST("update_licence")
+    Call<LoginModel> updateDocument(
+            @Part("national_id") RequestBody national_id,
+            @Part("license_number") RequestBody license_number,
+            @Part("expiration_date") RequestBody expiration_date,
+            @Part("user_id") RequestBody user_id,
+            @Part MultipartBody.Part file);
 
 }
 

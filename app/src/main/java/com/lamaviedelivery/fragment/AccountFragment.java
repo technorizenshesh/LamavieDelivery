@@ -14,17 +14,19 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.lamaviedelivery.ChangePassAct;
 import com.lamaviedelivery.EditProfileAct;
 import com.lamaviedelivery.OrderDetailAct;
 import com.lamaviedelivery.OrderHistoryAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.FragmentAccountBinding;
+import com.lamaviedelivery.listener.StatusListener;
 import com.lamaviedelivery.utils.DataManager;
 import com.lamaviedelivery.utils.SessionManager;
 
 
-public class AccountFragment extends Fragment {
+public class AccountFragment extends Fragment implements StatusListener {
    FragmentAccountBinding binding;
 
     @Nullable
@@ -39,13 +41,19 @@ public class AccountFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.layoutLogout.setOnClickListener(v -> LogOutAlert());
+        binding.tvLogout.setOnClickListener(v -> LogOutAlert());
 
         binding.layoutChangePass.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChangePassAct.class)));
 
-        binding.layoutAccount.setOnClickListener(v -> startActivity(new Intent(getActivity(), EditProfileAct.class)));
+        binding.btnEdit.setOnClickListener(v -> startActivity(new Intent(getActivity(), EditProfileAct.class)));
 
         binding.layoutHistory.setOnClickListener(v -> startActivity(new Intent(getActivity(), OrderHistoryAct.class)));
+
+
+        binding.btnDocumentEdit.setOnClickListener(v -> {
+            new UpdateDocumentBottomSheet().callBack(this:: onStatus).show(getActivity().getSupportFragmentManager(),"");
+
+        });
 
 
     }
@@ -79,13 +87,57 @@ public class AccountFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+       setUserInfo();
+    }
+
+
+
+    public void setUserInfo(){
+        binding.etFName.setText(DataManager.getInstance().getUserData(getActivity()).result.firstName);
+        binding.etLName.setText(DataManager.getInstance().getUserData(getActivity()).result.lastName);
+        binding.etEmail.setText(DataManager.getInstance().getUserData(getActivity()).result.email);
+        binding.etMobile.setText(DataManager.getInstance().getUserData(getActivity()).result.mobile);
+        binding.ccp.setCountryForPhoneCode(Integer.parseInt(DataManager.getInstance().getUserData(getActivity()).result.countryCode));
+
         if(!DataManager.getInstance().getUserData(getActivity()).result.image.equals("")){
             Glide.with(getActivity())
                     .load(DataManager.getInstance().getUserData(getActivity()).result.image)
                     .error(R.drawable.dummy)
                     .into(binding.ivUser);
         }
-        binding.tvName.setText(DataManager.getInstance().getUserData(getActivity()).result.firstName + " " +  DataManager.getInstance().getUserData(getActivity()).result.lastName);
-        binding.tvAddress.setText(DataManager.getInstance().getUserData(getActivity()).result.address);
+
+        setDocInfo();
+
     }
+
+    @Override
+    public void onStatus(String status) {
+        setUserInfo();
+    }
+
+
+
+    public void setDocInfo(){
+        if(!DataManager.getInstance().getUserData(getActivity()).result.licence.equals("")){
+            binding.ivDocument.setVisibility(View.VISIBLE);
+            binding.ivUpload.setVisibility(View.GONE);
+            binding.tvUpload.setVisibility(View.GONE);
+
+            Glide.with(getActivity())
+                    .load("https://lamavietech.ml/lamavie_laundry/uploads/images/"+DataManager.getInstance().getUserData(getActivity()).result.licence)
+                    .error(R.drawable.dummy)
+                    .into(binding.ivDocument);
+
+            binding.etLincenseNumber.setText(DataManager.getInstance().getUserData(getActivity()).result.licenseNumber);
+            binding.etNationalId.setText(DataManager.getInstance().getUserData(getActivity()).result.nationalId);
+            binding.etExpiry.setText(DataManager.getInstance().getUserData(getActivity()).result.expirationDate);
+        }
+        else {
+            binding.ivDocument.setVisibility(View.GONE);
+            binding.ivUpload.setVisibility(View.VISIBLE);
+            binding.tvUpload.setVisibility(View.VISIBLE);
+        }
+
+    }
+
 }

@@ -82,6 +82,29 @@ public class LoginModel {
         public String status;
 
 
+        @SerializedName("licence")
+        @Expose
+        public String licence;
+
+
+        @SerializedName("expiration_date")
+        @Expose
+        public String expirationDate;
+
+
+        @SerializedName("national_id")
+        @Expose
+        public String nationalId;
+
+
+        @SerializedName("license_number")
+        @Expose
+        public String licenseNumber;
+
+
+
+
+
 
     }
 

@@ -102,6 +102,17 @@
     <string name="no_order_found">No order found</string>
     <string name="in_progress">In Progress</string>
     <string name="shipped">Shipped</string>
+    <string name="order_status">Order Status</string>
+    <string name="document">Documents</string>
+    <string name="upload_document">"Upload License "</string>
+    <string name="national_id">National ID</string>
+    <string name="license_number">License Number</string>
+    <string name="expiry">Expiration Date</string>
+    <string name="update">Update</string>
+    <string name="update_document">Update Document</string>
 
+
+    <string name="otp_send">Otp send successfully.</string>
+    <string name="invalid_otp">Invalid Otp.</string>
 
 </resources>

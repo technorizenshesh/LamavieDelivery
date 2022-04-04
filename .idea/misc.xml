@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/activity_edit_profile.xml" value="0.11503623188405797" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/activity_order_detail.xml" value="0.21" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/activity_order_history.xml" value="0.12760416666666666" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/activity_track.xml" value="0.16197916666666667" />
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/activity_verify.xml" value="0.1" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/fragment_account.xml" value="0.12760416666666666" />
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/fragment_edit_document.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/fragment_order_status.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/item_booked.xml" value="0.11730072463768115" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/item_order.xml" value="0.20416666666666666" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/item_order_history.xml" value="0.12760416666666666" />
         <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/item_request.xml" value="0.10507246376811594" />
+        <entry key="..\:/MyProjects/LamavieDelivery/app/src/main/res/layout/item_status.xml" value="0.2384428223844282" />
       </map>
     </option>
   </component>

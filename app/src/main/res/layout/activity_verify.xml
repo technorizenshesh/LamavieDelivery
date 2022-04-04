@@ -63,7 +63,6 @@
                         app:bar_success_color="@color/white"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="30dp"
-                        app:otp="123456"
                         android:layout_marginRight="35dp"
                         android:layout_marginBottom="@dimen/_20sdp"/>
 
@@ -118,7 +117,7 @@
                     android:id="@+id/btnResend"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".5"
+                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/black"
@@ -137,7 +136,8 @@
                     android:textColor="@color/black"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="@dimen/_12sdp"
-                    android:text="@string/get_call" />
+                    android:text="@string/get_call"
+                    android:visibility="gone"/>
 
 
             </LinearLayout>

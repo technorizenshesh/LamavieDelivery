@@ -21,6 +21,8 @@ import com.lamaviedelivery.fragment.WalletFragment;
 import com.lamaviedelivery.service.MyService;
 import com.lamaviedelivery.utils.NetworkAvailablity;
 
+import java.util.TimeZone;
+
 public class HomeAct extends AppCompatActivity {
     ActivityHomeBinding binding;
     @Override
@@ -42,7 +44,6 @@ public class HomeAct extends AppCompatActivity {
 
 
         binding.layoutAccount.setOnClickListener(v -> tab(3));
-
 
     }
 
