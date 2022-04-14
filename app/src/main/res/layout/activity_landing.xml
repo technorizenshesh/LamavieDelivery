@@ -65,7 +65,8 @@
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+                app:cardElevation="@dimen/_5sdp"
+                android:visibility="gone">
 
 
                 <TextView
@@ -90,7 +91,8 @@
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+                app:cardElevation="@dimen/_5sdp"
+                android:visibility="gone">
 
 
                 <TextView
@@ -115,7 +117,8 @@
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+                app:cardElevation="@dimen/_5sdp"
+                android:visibility="gone">
 
 
                 <TextView

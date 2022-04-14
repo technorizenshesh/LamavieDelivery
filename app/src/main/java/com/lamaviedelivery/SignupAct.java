@@ -38,6 +38,8 @@ public class SignupAct extends AppCompatActivity {
 
     private void initViews() {
 
+        binding.ccp.setCountryForPhoneCode(20);
+
         if (!Places.isInitialized()) {
             Places.initialize(SignupAct.this, getString(R.string.place_api_key));
         }

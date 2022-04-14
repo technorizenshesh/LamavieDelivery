@@ -39,6 +39,8 @@ public class LogWithMobileAct extends AppCompatActivity {
     }
 
     private void initViews() {
+        binding.ccp.setCountryForPhoneCode(20);
+
         binding.btnSubmit.setOnClickListener(v -> {validation();});
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(instanceIdResult -> {
             try {

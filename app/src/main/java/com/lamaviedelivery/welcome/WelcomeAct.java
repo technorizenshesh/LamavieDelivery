@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.lamaviedelivery.LandingAct;
 import com.lamaviedelivery.LogWithMobileAct;
 import com.lamaviedelivery.R;
 
@@ -105,7 +106,7 @@ public class WelcomeAct extends AppCompatActivity {
         if (i < screens.length) {
             vp.setCurrentItem(i);
         } else {
-            startActivity(new Intent(WelcomeAct.this, LogWithMobileAct.class));
+            startActivity(new Intent(WelcomeAct.this, LandingAct.class));
             finish();
         }
     }

@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashAct"
-    android:background="@color/color_splash_bg">
+    android:background="@drawable/ic_splash_bg"
+>
 
 
     <ImageView
@@ -14,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/logo"
-        android:layout_margin="@dimen/_20sdp"/>
+        android:layout_margin="@dimen/_20sdp"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
