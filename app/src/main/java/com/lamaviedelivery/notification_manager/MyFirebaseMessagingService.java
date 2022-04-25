@@ -58,6 +58,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     sendBroadcast(intent1);
 
                 }
+                else {
+                    if(key.equals("notification")){
+                        title  = object.getString("Title");
+                        message = object.getString("Description");
+                    }
+
+                }
 
 
                 if (!SessionManager.readString(getApplicationContext(), Constant.USER_INFO, "").equals("")){
