@@ -41,11 +41,17 @@ public class  RequestAdapter extends RecyclerView.Adapter<RequestAdapter.MyViewH
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         holder.binding.tvName.setText(arrayList.get(position).userDetails.firstName + " " + arrayList.get(position).userDetails.lastName);
-        holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
+
+
+        double tax  = Double.parseDouble(arrayList.get(position).tax);
+       double  subTotal = Double.parseDouble(arrayList.get(position).price) + Double.parseDouble(arrayList.get(position).deliveryCharge);
+       double total = subTotal + tax;
+        holder.binding.tvPrice.setText("L.E" + String.format("%.2f", total));
+        // holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
         holder.binding.tvOrderId.setText("Id : " + arrayList.get(position).id);
         for(int i = 0;i<arrayList.get(position).itemDetails.size();i++){
             if (arrayList.get(position).itemDetails.size()!=0)
-            stringArrayList.add(arrayList.get(position).itemDetails.get(i).childCateName);
+            stringArrayList.add(arrayList.get(position).itemDetails.get(i).name);
         }
         if (arrayList.get(position).itemDetails.size()!=0) holder.binding.tvItems.setText(commaSeprated(stringArrayList));
 

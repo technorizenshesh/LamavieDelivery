@@ -37,8 +37,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.binding.tvPrice.setText("$"+arrayList.get(position).price);
-        holder.binding.tvName.setText(arrayList.get(position).childCateName);
+        holder.binding.tvPrice.setText("L.E"+arrayList.get(position).amount);
+        holder.binding.tvName.setText(arrayList.get(position).name);
         holder.binding.tvQuantity1.setText(arrayList.get(position).quantity);
         if(arrayList.get(position).extraOptions.size()!=0){
             holder.binding.layoutExtra.setVisibility(View.VISIBLE);
@@ -49,7 +49,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
             }
 
             holder.binding.tvItemName.setText(AddCommaValues());
-            holder.binding.tvItemPrice.setText("$"+String.format("%.2f",count));
+            holder.binding.tvItemPrice.setText("L.E"+String.format("%.2f",count));
         }
         else {
             holder.binding.layoutExtra.setVisibility(View.GONE);

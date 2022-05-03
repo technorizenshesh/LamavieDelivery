@@ -134,13 +134,13 @@ public class OrderDetailAct extends AppCompatActivity {
                     if (model.status.equals("1")) {
                         binding.tvOrderId.setText("Order ID :" + model.result.id);
                         binding.tvDateTime.setText(DataManager.convertDateToString3(model.result.pickupDate) + " at " + DataManager.convertStringAmPm(model.result.pickupTime));
-
-                        subTotal = Double.parseDouble(model.result.price);
+                        tax = Double.parseDouble(model.result.tax);
+                        subTotal = Double.parseDouble(model.result.price) + Double.parseDouble(model.result.deliveryCharge);
                         total = subTotal + tax;
 
-                        binding.tvSubtotal.setText("$" + String.format("%.2f", subTotal));
-                        binding.tvTax.setText("$" + String.format("%.2f", tax));
-                        binding.tvtotal.setText("$" + String.format("%.2f", total));
+                        binding.tvSubtotal.setText("L.E" + String.format("%.2f", subTotal));
+                        binding.tvTax.setText("L.E" + String.format("%.2f", tax));
+                        binding.tvtotal.setText("L.E" + String.format("%.2f", total));
                         binding.tvPickup.setText(" " +model.result.pickupAddress);
                         binding.tvDelivery.setText(" "+model.result.address);
                         binding.tvPaymentType1.setText(" "+model.result.paymentType);

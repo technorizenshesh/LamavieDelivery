@@ -171,7 +171,7 @@ public class TrackAct extends AppCompatActivity  implements OnMapReadyCallback, 
         });
 
         binding.tvDetail.setOnClickListener(v -> {
-            new OrderStatusBottomSheet(model.result.id).callBack(this::onStatus).show(getSupportFragmentManager(),"");
+          //  new OrderStatusBottomSheet(model.result.id).callBack(this::onStatus).show(getSupportFragmentManager(),"");
         });
     }
 
