@@ -96,8 +96,8 @@ public class AccountFragment extends Fragment implements StatusListener {
         binding.etFName.setText(DataManager.getInstance().getUserData(getActivity()).result.firstName);
         binding.etLName.setText(DataManager.getInstance().getUserData(getActivity()).result.lastName);
         binding.etEmail.setText(DataManager.getInstance().getUserData(getActivity()).result.email);
-        binding.etMobile.setText(DataManager.getInstance().getUserData(getActivity()).result.mobile);
-        binding.ccp.setCountryForPhoneCode(Integer.parseInt(DataManager.getInstance().getUserData(getActivity()).result.countryCode));
+        if(!DataManager.getInstance().getUserData(getActivity()).result.mobile.equals(""))   binding.etMobile.setText(DataManager.getInstance().getUserData(getActivity()).result.mobile);
+        if(!DataManager.getInstance().getUserData(getActivity()).result.countryCode.equals("")) binding.ccp.setCountryForPhoneCode(Integer.parseInt(DataManager.getInstance().getUserData(getActivity()).result.countryCode));
 
         if(!DataManager.getInstance().getUserData(getActivity()).result.image.equals("")){
             Glide.with(getActivity())
