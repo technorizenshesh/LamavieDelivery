@@ -79,7 +79,8 @@
 
         <activity android:name=".HomeAct"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="locale|orientation"/>
 
 
         <activity android:name=".welcome.WelcomeAct"

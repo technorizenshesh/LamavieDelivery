@@ -120,8 +120,11 @@ public class VerifyActivity extends AppCompatActivity {
                     if (data.status.equals("1")) {
                         Toast.makeText(VerifyActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         SessionManager.writeString(VerifyActivity.this, Constant.USER_INFO, responseString);
+                        if(DataManager.getInstance().getUserData(VerifyActivity.this).result.langunge.equals("ar"))  { DataManager.updateResources(VerifyActivity.this,"ar"); }
+                        else { DataManager.updateResources(VerifyActivity.this,"en"); }
                         startActivity(new Intent(VerifyActivity.this, HomeAct.class).putExtra("home","1").addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
                         finish();
+
                     } else if (data.status.equals("0")) Toast.makeText(VerifyActivity.this, data.message, Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -3,31 +3,51 @@ package com.lamaviedelivery.fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.lamaviedelivery.ChangePassAct;
 import com.lamaviedelivery.EditProfileAct;
+import com.lamaviedelivery.HomeAct;
 import com.lamaviedelivery.OrderDetailAct;
 import com.lamaviedelivery.OrderHistoryAct;
 import com.lamaviedelivery.R;
 import com.lamaviedelivery.databinding.FragmentAccountBinding;
 import com.lamaviedelivery.listener.StatusListener;
+import com.lamaviedelivery.model.LoginModel;
+import com.lamaviedelivery.retrofit.ApiClient;
+import com.lamaviedelivery.retrofit.Constant;
+import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
 import com.lamaviedelivery.utils.DataManager;
 import com.lamaviedelivery.utils.SessionManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class AccountFragment extends Fragment implements StatusListener {
-   FragmentAccountBinding binding;
+    public String TAG = "AccountFragment";
+    FragmentAccountBinding binding;
+    LamavieDeliveryInterface apiInterface;
+
 
     @Nullable
     @Override
@@ -39,6 +59,8 @@ public class AccountFragment extends Fragment implements StatusListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        apiInterface = ApiClient.getClient().create(LamavieDeliveryInterface.class);
 
 
         binding.tvLogout.setOnClickListener(v -> LogOutAlert());
@@ -53,6 +75,37 @@ public class AccountFragment extends Fragment implements StatusListener {
         binding.btnDocumentEdit.setOnClickListener(v -> {
             new UpdateDocumentBottomSheet().callBack(this:: onStatus).show(getActivity().getSupportFragmentManager(),"");
 
+        });
+
+
+        if(DataManager.getInstance().getUserData(getActivity()).result.langunge.equals("ar")) {
+            binding.switchLang.setText(getString(R.string.arabic));
+            binding.switchLang.setChecked(true);
+
+        }else {
+            binding.switchLang.setText(getString(R.string.english));
+            binding.switchLang.setChecked(false);
+        }
+
+
+
+
+        binding.switchLang.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    DataManager.updateResources(getActivity(),"ar");
+                    //  SessionManager.writeString(getActivity(), Constant.LANGUAGE,"ar");
+                    binding.switchLang.setText(getString(R.string.arabic));
+                    updateLang("ar");
+
+                }
+                else {
+                    DataManager.updateResources(getActivity(),"en");
+                    SessionManager.writeString(getActivity(), Constant.LANGUAGE,"en");
+                    binding.switchLang.setText(getString(R.string.english));
+                    updateLang("en");                }
+            }
         });
 
 
@@ -137,6 +190,52 @@ public class AccountFragment extends Fragment implements StatusListener {
             binding.ivUpload.setVisibility(View.VISIBLE);
             binding.tvUpload.setVisibility(View.VISIBLE);
         }
+
+    }
+
+
+    private void updateLang(String lang) {
+        DataManager.getInstance().showProgressMessage(getActivity(), getString(R.string.please_wait));
+        Map<String, String> map = new HashMap<>();
+        map.put("langunge", lang);
+        map.put("user_id", DataManager.getInstance().getUserData(getActivity()).result.id + "");
+        Log.e(TAG, "Update Language Request " + map);
+        Call<LoginModel> loginCall = apiInterface.changeLang(map);
+        loginCall.enqueue(new Callback<LoginModel>() {
+            @Override
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                DataManager.getInstance().hideProgressMessage();
+                try {
+                    LoginModel data = response.body();
+                    String dataResponse = new Gson().toJson(response.body());
+                    Log.e("MapMap", "Update Language RESPONSE" + dataResponse);
+                    if (data.status.equals("1")) {
+                        Toast.makeText(getActivity(), data.message, Toast.LENGTH_SHORT).show();
+                        SessionManager.writeString(getActivity(), Constant.USER_INFO, dataResponse);
+                       // reloadFrg();
+                        startActivity(new Intent(getActivity(), HomeAct.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                    } else if (data.status.equals("0")) {
+                        Toast.makeText(getActivity(), data.message, Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginModel> call, Throwable t) {
+                call.cancel();
+                DataManager.getInstance().hideProgressMessage();
+            }
+
+        });
+    }
+
+    public void reloadFrg(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container,new AccountFragment()).addToBackStack(null).commit();
 
     }
 

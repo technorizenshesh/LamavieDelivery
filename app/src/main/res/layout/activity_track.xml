@@ -34,6 +34,7 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/poppins_regular"
                 android:text="@string/track_order"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />
 
@@ -94,6 +95,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/order_details"
+                                android:layout_alignParentLeft="true"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp" />
 
@@ -124,6 +126,8 @@
                             android:layout_marginTop="-2dp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="fdddfdfdfdfdfdfdf"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/color_grey_two"
                             android:textSize="@dimen/_10sdp" />
 
@@ -162,6 +166,8 @@
                             android:layout_marginTop="@dimen/_7sdp"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/view_details"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/color_next"
                             android:textSize="@dimen/_10sdp" />
 
@@ -200,6 +206,8 @@
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/delivery_address"
                             android:textColor="@color/black"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textSize="@dimen/_13sdp" />
 
 
@@ -211,6 +219,8 @@
                             android:fontFamily="@font/poppins_regular"
                             android:maxLines="3"
                             android:text=""
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/color_grey_two"
                             android:textSize="@dimen/_10sdp" />
 

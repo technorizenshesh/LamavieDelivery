@@ -39,6 +39,7 @@ public interface LamavieDeliveryInterface {
             @Part("lon") RequestBody password,
             @Part("register_id") RequestBody lon,
             @Part("type") RequestBody type,
+            @Part("langunge") RequestBody language,
             @Part MultipartBody.Part file);
 
 
@@ -136,6 +137,11 @@ public interface LamavieDeliveryInterface {
             @Part("expiration_date") RequestBody expiration_date,
             @Part("user_id") RequestBody user_id,
             @Part MultipartBody.Part file);
+
+
+    @FormUrlEncoded
+    @POST("update_langunge")
+    Call<LoginModel> changeLang (@FieldMap Map<String, String> params);
 
 }
 

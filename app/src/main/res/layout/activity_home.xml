@@ -44,6 +44,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="@dimen/_10sdp"/>
 
@@ -72,6 +74,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/wallet"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="@dimen/_10sdp"/>
 
@@ -100,6 +104,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/account"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="@dimen/_10sdp"/>
 

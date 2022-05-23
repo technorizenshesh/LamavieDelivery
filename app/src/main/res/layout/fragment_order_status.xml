@@ -68,6 +68,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
                     android:text="affsf"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp" />
 
@@ -92,6 +94,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:text="affsf"
+                        android:layout_gravity="left"
+                        android:gravity="center_vertical"
                         android:textColor="@color/color_grey_two"
                         android:textSize="@dimen/_13sdp" />
 
@@ -108,6 +112,8 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/order_status"
+                        android:layout_gravity="left"
+                        android:gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
 
@@ -142,6 +148,7 @@
                                 android:fontFamily="@font/poppins_regular"
                                 android:gravity="center_vertical"
                                 android:text="@string/sub_total"
+
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_11sdp" />
 

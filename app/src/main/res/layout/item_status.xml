@@ -36,6 +36,7 @@
                     android:layout_toLeftOf="@+id/tvTime"
                     android:fontFamily="@font/poppins_semibold"
                     android:maxLines="3"
+                    android:gravity="center_vertical"
                     android:text="Coat"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
@@ -67,6 +68,8 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="hghgh"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/_12sdp" />
 

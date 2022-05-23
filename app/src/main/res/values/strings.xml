@@ -114,5 +114,11 @@
 
     <string name="otp_send">Otp send successfully.</string>
     <string name="invalid_otp">Invalid Otp.</string>
+    <string name="change_language">Change language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="all">All</string>
+    <string name="cancel">Cancel</string>
+    <string name="completed">Completed</string>
 
 </resources>

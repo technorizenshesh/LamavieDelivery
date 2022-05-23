@@ -17,7 +17,9 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.lamaviedelivery.databinding.ActivitySplashBinding;
+import com.lamaviedelivery.retrofit.Constant;
 import com.lamaviedelivery.utils.DataManager;
+import com.lamaviedelivery.utils.SessionManager;
 import com.lamaviedelivery.welcome.WecomeFirstAct;
 import com.lamaviedelivery.welcome.WelcomeAct;
 
@@ -56,9 +58,20 @@ public class SplashAct extends AppCompatActivity {
                 if (DataManager.getInstance().getUserData(getApplicationContext()) != null&&
                         DataManager.getInstance().getUserData(getApplicationContext()).result != null &&
                         DataManager.getInstance().getUserData(getApplicationContext()).result.id!=null) {
+                    if(DataManager.getInstance().getUserData(SplashAct.this).result.langunge.equals("ar"))  { DataManager.updateResources(SplashAct.this,"ar"); }
+                    else { DataManager.updateResources(SplashAct.this,"en"); }
                     startActivity(new Intent(SplashAct.this, HomeAct.class));
                     finish();
                 } else {
+
+                    if(SessionManager.readString(SplashAct.this, Constant.LANGUAGE, "").equals("en")){
+                        DataManager.updateResources(SplashAct.this,"en");
+                        SessionManager.writeString(SplashAct.this, Constant.LANGUAGE, "en");
+                    }
+                    else {
+                        DataManager.updateResources(SplashAct.this,"ar");
+                        SessionManager.writeString(SplashAct.this, Constant.LANGUAGE, "ar");
+                    }
                     startActivity(new Intent(SplashAct.this, WelcomeAct.class));
                     finish();
                 }

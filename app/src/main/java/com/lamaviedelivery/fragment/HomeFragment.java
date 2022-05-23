@@ -48,10 +48,10 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("All"));
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("In Progress"));
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Cancel"));
-        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Completed"));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.all)));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.in_progress)));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.cancel)));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.completed)));
         binding.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         binding.viewPager.setAdapter(new MyAdapter(getActivity(),getChildFragmentManager(), binding.tabLayout.getTabCount()));

@@ -48,4 +48,18 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+
+    <style name="Color1SwitchStyle1">
+        <item name="colorControlActivated">@color/color_next</item>
+        <item name="colorSwitchThumbNormal">@color/grey</item>
+        <item name="android:colorForeground">@color/grey</item>
+    </style>
+
+
+    <style name="Color1SwitchStyle">
+        <item name="colorControlActivated">@color/color_next</item>
+        <item name="colorSwitchThumbNormal">@color/grey</item>
+        <item name="android:colorForeground">@color/grey</item>
+    </style>
+
 </resources>

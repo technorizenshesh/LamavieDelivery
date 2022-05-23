@@ -48,7 +48,7 @@ public class HomeAct extends AppCompatActivity {
     }
 
 
-    public void tab(int i){
+    public  void tab(int i){
         if (i == 1) {
             binding.ivHome.setImageDrawable(getResources().getDrawable(R.drawable.active_home));
             binding.ivWallet.setImageDrawable(getResources().getDrawable(R.drawable.inactive_wallet));
@@ -84,7 +84,7 @@ public class HomeAct extends AppCompatActivity {
         }
     }
 
-    public void FragTrans(Fragment fragment) {
+    public  void FragTrans(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 //        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         transaction.replace(R.id.container, fragment);
@@ -136,7 +136,6 @@ public class HomeAct extends AppCompatActivity {
         super.onDestroy();
         stopService(new Intent(this, MyService.class));
     }
-
 
 
 }

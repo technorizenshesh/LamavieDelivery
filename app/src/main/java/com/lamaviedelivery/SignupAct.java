@@ -3,6 +3,7 @@ package com.lamaviedelivery;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,9 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.lamaviedelivery.databinding.ActivitySignupBinding;
+import com.lamaviedelivery.retrofit.Constant;
+import com.lamaviedelivery.utils.DataManager;
+import com.lamaviedelivery.utils.SessionManager;
 
 import java.util.Arrays;
 import java.util.List;
@@ -62,6 +66,41 @@ public class SignupAct extends AppCompatActivity {
         binding.btnNext.setOnClickListener(v -> {
             validation();
         });
+
+        if(SessionManager.readString(SignupAct.this, Constant.LANGUAGE, "ar").equals("ar")){
+            DataManager.updateResources(SignupAct.this,"ar");
+            SessionManager.writeString(SignupAct.this, Constant.LANGUAGE, "ar");
+            binding.switchLan.setText(getString(R.string.arabic));
+            binding.switchLan.setChecked(true);
+
+
+        }else {
+            DataManager.updateResources(SignupAct.this,"en");
+            SessionManager.writeString(SignupAct.this, Constant.LANGUAGE,"en");
+            binding.switchLan.setText(getString(R.string.english));
+            binding.switchLan.setChecked(false);
+
+        }
+
+
+        binding.switchLan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    DataManager.updateResources(SignupAct.this,"ar");
+                    //  SessionManager.writeString(getActivity(), Constant.LANGUAGE,"ar");
+                    binding.switchLan.setText(getString(R.string.arabic));
+
+                }
+                else {
+                    DataManager.updateResources(SignupAct.this, "en");
+                    SessionManager.writeString(SignupAct.this, Constant.LANGUAGE, "en");
+                    binding.switchLan.setText(getString(R.string.english));
+                }
+            }
+        });
+
+
     }
 
 

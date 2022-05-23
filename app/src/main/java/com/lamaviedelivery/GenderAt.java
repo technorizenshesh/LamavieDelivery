@@ -12,8 +12,10 @@ import androidx.databinding.DataBindingUtil;
 import com.google.gson.Gson;
 import com.lamaviedelivery.databinding.ActivityGenderBinding;
 import com.lamaviedelivery.retrofit.ApiClient;
+import com.lamaviedelivery.retrofit.Constant;
 import com.lamaviedelivery.retrofit.LamavieDeliveryInterface;
 import com.lamaviedelivery.utils.DataManager;
+import com.lamaviedelivery.utils.SessionManager;
 
 import java.io.File;
 import java.util.Map;
@@ -107,9 +109,10 @@ public class GenderAt extends AppCompatActivity {
         RequestBody Gender = RequestBody.create(MediaType.parse("text/plain"), gender);
         RequestBody token = RequestBody.create(MediaType.parse("text/plain"), refreshedToken);
         RequestBody Type = RequestBody.create(MediaType.parse("text/plain"), type);
+        RequestBody lang = RequestBody.create(MediaType.parse("text/plain"), SessionManager.readString(GenderAt.this, Constant.LANGUAGE,""));
 
 
-        Call<Map<String,String>> editNameCall = apiInterface.signupUser(f_name,l_name,Email,Mob,CountryCo,Dob,Gender,addressss,lattt,lonn,token,Type, filePart);
+        Call<Map<String,String>> editNameCall = apiInterface.signupUser(f_name,l_name,Email,Mob,CountryCo,Dob,Gender,addressss,lattt,lonn,token,Type,lang, filePart);
         editNameCall.enqueue(new Callback<Map<String,String>>() {
             @Override
             public void onResponse(Call<Map<String,String>> call, Response<Map<String,String>> response) {

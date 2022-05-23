@@ -27,10 +27,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_regular"
                 android:text="@string/home"
+                android:gravity="center"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
-                android:fontFamily="@font/poppins_regular"/>
+                android:textSize="@dimen/_14sdp" />
 
 
 

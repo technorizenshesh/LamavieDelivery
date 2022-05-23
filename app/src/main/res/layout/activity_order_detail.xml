@@ -43,6 +43,7 @@
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/order_details"
+                        android:gravity="center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_14sdp" />
 
@@ -64,6 +65,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:text="affsf"
+                        android:layout_gravity="left"
+                        android:gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp" />
 
@@ -74,6 +77,8 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:text="affsf"
+                        android:layout_gravity="left"
+                        android:gravity="center_vertical"
                         android:textColor="@color/color_grey_two"
                         android:textSize="@dimen/_13sdp" />
 
@@ -91,6 +96,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/pickup_location"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13sdp" />
 
@@ -103,6 +110,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:text="affsf"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:textColor="@color/color_grey_two"
                             android:textSize="@dimen/_13sdp" />
 
@@ -121,6 +130,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/delivery_location"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13sdp" />
 
@@ -130,6 +141,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:text="affsf"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:textColor="@color/color_grey_two"
                             android:textSize="@dimen/_13sdp" />
 
@@ -146,6 +159,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
                             android:text="@string/payment_type"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13sdp" />
 
@@ -153,6 +168,8 @@
                             android:id="@+id/tvPaymentType1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
                             android:fontFamily="@font/poppins_regular"
                             android:textColor="@color/color_grey_two"
                             android:textSize="@dimen/_13sdp" />
@@ -168,6 +185,8 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="@string/items"
+                        android:layout_gravity="left"
+                        android:gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
 

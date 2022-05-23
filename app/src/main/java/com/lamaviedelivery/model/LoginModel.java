@@ -101,7 +101,9 @@ public class LoginModel {
         @Expose
         public String licenseNumber;
 
-
+        @SerializedName("langunge")
+        @Expose
+        public String langunge;
 
 
 

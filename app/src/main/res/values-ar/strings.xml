@@ -1,0 +1,129 @@
+<resources>
+    <string name="app_name">Lamavie Delivery</string>
+    <string name="mobile_number">رقم الهاتف</string>
+    <string name="facebook">Facebook</string>
+    <string name="apple_id">Apple ID</string>
+    <string name="google">Google</string>
+    <string name="text_for_term_condition"><![CDATA[بالاستمرار انت توافق علي القواعد وشروط الاستخدام]]></string>
+    <string name="next">التالي</string>
+    <string name="otp_text">برجاء ادخال رقم الهاتف لارسال كود التفعيل</string>
+    <string name="submit">إرسال</string>
+    <string name="otp_verify_one">تم ارسال رسالة الي</string>
+
+    <string name="otp_verify_two">ب٦ ارقام كود التفعيل.</string>
+    <string name="do_not_receive_code">لم يصلك الكود؟</string>
+    <string name="resend">إعادة إرسال</string>
+    <string name="get_call">اتصل بي</string>
+    <string name="first_name">الاسم</string>
+    <string name="last_name">اسم العائلة</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="dob">تاريخ الميلاد</string>
+    <string name="account_information">معلومات الحساب</string>
+    <string name="upload_your_profile_picture">اضف صورتك الشخصية</string>
+    <string name="add_your_picture">اضف صورة</string>
+    <string name="don_t_have_an_account_sign_up">ليس لديك حساب؟ سجل الان</string>
+    <string name="choose_your_gender">اختار النوع</string>
+    <string name="text_for_gender">هذا سيساعدنا في اختيار الهدايا المناسبة لك</string>
+    <string name="male">ذكر</string>
+    <string name="female">انثي</string>
+
+    <string name="home">الرئيسية</string>
+    <string name="wallet">المحفظة</string>
+    <string name="account">الحساب</string>
+
+    <string name="recharge">إعادة الشحن</string>
+    <string name="available_balance">الرصيد الحالي</string>
+    <string name="withdraw">سحب</string>
+    <string name="transacations">المعاملات</string>
+
+    <string name="account_info">معلومات الحساب</string>
+    <string name="change_password">تغير كلمة السر</string>
+    <string name="my_address">عناويني</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="msg">رسائل</string>
+    <string name="notification">اشعارات</string>
+    <string name="order_history">تاريخ الطلبات</string>
+    <string name="others">اخري</string>
+    <string name="main">الرئيسية</string>
+
+    <string name="please_wait">برجاء الانتظار...</string>
+    <string name="network_failure">عفوا! برجاء التحقق من الاتصال بالانترنت</string>
+    <string name="please_enter_first_name">برجاء ادخال الاسم</string>
+    <string name="please_enter_last_name">برجاء ادخال اسم العائلة</string>
+    <string name="please_enter_email">برجاء ادخال البريد الالكتروني</string>
+    <string name="please_enter_mobile_number">برجاء ادخال رقم الهاتف</string>
+
+    <string name="wrong_email">البريد الالكتروني غير صحيح</string>
+    <string name="enter_dob">برجاء ادخال تاريخ الميلاد</string>
+
+    <string name="place_api_key">AIzaSyC4Eg_qGdkZrcW-td6QsmJAk2g4nzPaat0</string>
+    <string name="address">العنوان</string>
+    <string name="please_select_address">برجاء اختيار عنوان</string>
+    <string name="camera">الكاميرا</string>
+    <string name="select_image_from">اختار صورة من</string>
+    <string name="gallery">الاستوديو</string>
+    <string name="please_select_profile_picture">برجاء اضافة صورة للحساب</string>
+    <string name="please_select_gender">برجاء اختيار النوع</string>
+    <string name="are_you_sure_you_want_to_exit_this_app">هل تريد الخروج؟</string>
+    <string name="are_you_sure_you_want_to_logout_this_app">هل تريد تسجيل الخروج؟</string>
+    <string name="no_booking_available">لا يوجد طلبات</string>
+    <string name="save">حفظ</string>
+    <string name="confirm_pass">تاكيد كلمة السر</string>
+    <string name="new_pass">كلمة سر جديدة</string>
+
+    <string name="required">مطلوب</string>
+    <string name="password_does_not_matched">كلمة السر غير متطابقة</string>
+    <string name="edit_profile">تعديل الحساب</string>
+    <string name="order_details">بيانات الطلب</string>
+    <string name="items">الاغراض</string>
+
+    <string name="sub_total">مبلغ اجمالي</string>
+    <string name="tax">الضريبة</string>
+    <string name="total">الاجمالي بالضريبة</string>
+    <string name="decline">رفض</string>
+    <string name="accept">موافقة</string>
+    <string name="view_details">اظهر التفاصيل</string>
+    <string name="track">تتبع</string>
+    <string name="delivery_address">عنوان التوصيل</string>
+    <string name="track_order">Track Order</string>
+
+    <!-- key for map-->
+    <string name="google_maps_key">AIzaSyAXTJrvnDTC8AjYzK2dPatsSAMJaTIc-c0</string>
+    <string name="pickup">استلام الطلب</string>
+    <string name="confirmed">تاكيد</string>
+    <string name="pickup_location">عنوان الاستلام : </string>
+    <string name="delivery_location">عنوان التوصيل : </string>
+    <string name="extra_items">اغراض اضافية : </string>
+    <string name="payment_type">طريقة الدفع:</string>
+    <string name="pickup_address">عنوان استلان</string>
+    <string name="otp">كود التاكيد</string>
+    <string name="please_enter_otp">برجاء ادخال كود التاكيد</string>
+    <string name="deliver_order">توصيل الطلب</string>
+    <string name="no_order_found">لا يوجد طلبات</string>
+    <string name="in_progress">جاري العمل</string>
+    <string name="shipped">تم التوصيل</string>
+    <string name="order_status">حالة الطلب</string>
+    <string name="document">المستندات</string>
+    <string name="upload_document">"اضف صورة الرخصة"</string>
+    <string name="national_id">الرقم القومي</string>
+    <string name="license_number">رقم الرخصة</string>
+    <string name="expiry">تاريخ الانتهاء</string>
+    <string name="update">تحديث</string>
+    <string name="update_document">اضافة مستند</string>
+
+
+    <string name="otp_send">تم ارسال كود التفعيل بنجاح</string>
+    <string name="invalid_otp">كود التاكذ خطأ</string>
+
+
+    <string name="change_language">تغيير اللغة</string>
+    <string name="english">إنجليزي</string>
+    <string name="arabic">عربي</string>
+
+
+    <string name="all">الجميع</string>
+    <string name="cancel">يلغي</string>
+    <string name="completed">مكتمل</string>
+
+
+</resources>

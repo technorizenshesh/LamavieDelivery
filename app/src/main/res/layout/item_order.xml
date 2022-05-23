@@ -25,6 +25,7 @@
                 android:layout_toLeftOf="@+id/tvQuantity1"
                 android:fontFamily="@font/poppins_semibold"
                 android:maxLines="3"
+                android:gravity="center_vertical"
                 android:text="Coat"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp" />
@@ -149,6 +150,8 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:maxLines="3"
                 android:text="@string/extra_items"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 
@@ -158,11 +161,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_toLeftOf="@+id/tvItemPrice"
                 android:layout_marginRight="@dimen/_5sdp"
+                android:layout_toLeftOf="@+id/tvItemPrice"
                 android:layout_toRightOf="@+id/tvExtra"
                 android:fontFamily="@font/poppins_regular"
                 android:text="$60"
+                android:gravity="center_vertical"
                 android:textColor="@color/color_ellipse_one"
                 android:textSize="@dimen/_10sdp" />
 

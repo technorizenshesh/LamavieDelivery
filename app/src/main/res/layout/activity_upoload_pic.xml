@@ -17,12 +17,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_30sdp"
-                android:gravity="center"
-                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="@dimen/_16sdp"
-                android:text="@string/upload_your_profile_picture" />
+                android:gravity="center"
+                android:text="@string/upload_your_profile_picture"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
 
 
             <LinearLayout
@@ -45,7 +48,7 @@
                         android:layout_width="@dimen/_80sdp"
                         android:layout_height="@dimen/_80sdp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/illustration"/>
+                        android:src="@drawable/illustration" />
 
 
 
@@ -99,7 +102,6 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
-
 
 
 

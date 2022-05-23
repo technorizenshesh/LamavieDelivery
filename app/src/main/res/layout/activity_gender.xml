@@ -16,9 +16,13 @@
                 android:id="@+id/btnBack"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/back"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
                 android:padding="@dimen/_5sdp"
-                android:layout_margin="@dimen/_15sdp"/>
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/back" />
 
 
             <TextView
@@ -26,28 +30,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_30sdp"
-                android:gravity="center"
-                android:textColor="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="@dimen/_16sdp"
-                android:text="@string/choose_your_gender" />
+                android:gravity="center"
+                android:text="@string/choose_your_gender"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
 
 
             <TextView
                 android:id="@+id/tv2"
-                android:layout_below="@+id/tvMain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_below="@+id/tvMain"
                 android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_30sdp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
                 android:text="@string/text_for_gender"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginLeft="@dimen/_30sdp"
-                android:layout_marginRight="@dimen/_30sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
@@ -89,6 +93,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/male"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:fontFamily="@font/poppins_regular"
                             android:textSize="@dimen/_12sdp"
                             android:textColor="@color/black"
@@ -118,6 +124,8 @@
                             android:text="@string/female"
                             android:fontFamily="@font/poppins_regular"
                             android:textSize="@dimen/_12sdp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:textColor="@color/black"
                             android:layout_margin="@dimen/_8sdp"/>
 
