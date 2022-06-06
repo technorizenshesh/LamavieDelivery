@@ -120,5 +120,7 @@
     <string name="all">All</string>
     <string name="cancel">Cancel</string>
     <string name="completed">Completed</string>
+    <string name="paid">PAID</string>
+    <string name="timer">02:00 PM</string>
 
 </resources>

@@ -126,4 +126,7 @@
     <string name="completed">مكتمل</string>
 
 
+    <string name="paid">دفع</string>
+    <string name="timer">02:00 مساءً</string>
+
 </resources>

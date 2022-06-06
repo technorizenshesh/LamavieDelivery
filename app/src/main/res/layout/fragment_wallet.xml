@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/tv1"
-                android:text="$20"
+                android:text="L.E20"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_17sdp"
                 android:fontFamily="@font/poppins_bold"
@@ -113,13 +113,16 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@+id/tv3"
-            android:layout_margin="@dimen/_10sdp"
             android:id="@+id/rvWallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tv3"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_transaction"/>
+            tools:listitem="@layout/item_transaction" />
 
 
     </RelativeLayout>
